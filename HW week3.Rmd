@@ -105,5 +105,20 @@ summary(applications_white_noncrime)
 ```
 
 ```{r}
+##The estimated mean causal effect of having a criminal record on the probability of receiving a call back for a job interview is 12.54965%. The assumption is that having a criminal record reduces the probability of receiving a call back. This is because it is reasonable to assume that employers would want employers who do not cause crime or other social problems. The treatment is the observation with criminal cases and the outcome is the observation with returned calls. The results are as follows. The direction of the mean treatment effect is the same as the hypothesis, and the unit of measurement:both variables are binominal.
+
+##I ran the codes below:
+
+applications_crime<- applications[applications$criminal==1,]
+percentage_crime<- mean(applications_crime$call)
+
+applications_noncrime<- applications[applications$criminal==0,]
+percentage_noncrime<- mean(applications_noncrime$call)
+
+comparison<- percentage_noncrime-percentage_crime
+comparison*100
+
 
 ```
+what is the unit of measurement
+
