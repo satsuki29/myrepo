@@ -45,19 +45,34 @@ dim(applications)
 
 2-1
 ```{r}
+dim(applications)
+## 696 observations in the original data frame
+
+dim(applications_white)
+## 300 in the new data frame
+```
+##[applications$race=="white",] what is the last comma?
+
+2-2
+```{r}
+mean(applications_white$criminal)
+0.5
+## People with criminal record and people without criminal record are properly split half half within the observation
+```
+
+2-3
+```{r}
+mean(applications_white$call)
+0.2533333
+## 25.3% received  the call
 
 ```
 
 
+2-4
 ```{r}
 
 ```
-
-
-```{r}
-
-```
-
 
 
 ```{r}
