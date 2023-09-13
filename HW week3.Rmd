@@ -4,11 +4,32 @@ author: "satsuki gyoten"
 date: "2023-09-13"
 output: html_document
 ---
+1
+```{r}
+applications<- read.csv("applications.csv")
+
+```
+
+2
+```{r}
+head(applications)
+
+```
 
 ```{r}
+## The independent variable is the criminal history, and the dependent variable is the whether one will receive a call back for a job interview. The control variable is race. We observe whether criminal history affects the likelihood of receiving a call back.
+
 ```
 
 
 ```{r}
+## The person at the top of the table applied for job1 (the same job as the second person above), has no criminal record, is white, and received a return call.
+
+```
+
+
+
+```{r}
+
 
 ```
