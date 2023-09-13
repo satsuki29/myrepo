@@ -71,10 +71,14 @@ mean(applications_white$call)
 
 2-4
 ```{r}
+##a treatment variable:criminal
+##b outcome variable:call
 
 ```
 
-
+2-5
 ```{r}
+##a treatment group: a set of observations with criminal=1
+##b control group: a set of observations withvcriminal=0
 
 ```
