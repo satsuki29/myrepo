@@ -84,22 +84,24 @@ mean(applications_white$call)
 ```
 
 ```{r}
+## find the percentage of people with criminal=1 who have Call=1
 
+applications_white_crime<- applications_white[applications_white$criminal ==1,]
+summary(applications_white_crime)
 
 ```
 
 3-2
 ```{r}
-applications_white_crime<- applications_white[applications_white$criminal ==1,]
-summary(applications_white_crime)
-Mean   :0.1667 
-
 ##Within this experiment, 16.67% of whites with a criminal background received a return call.
 ```
 
 3-3
 ```{r}
+applications_white_noncrime<- applications_white[applications_white$criminal ==0,]
+summary(applications_white_noncrime)
 
+##Within this experiment, 34% of whites without criminal background received a return call.
 ```
 
 ```{r}
