@@ -79,6 +79,29 @@ mean(applications_white$call)
 2-5
 ```{r}
 ##a treatment group: a set of observations with criminal=1
-##b control group: a set of observations withvcriminal=0
+##b control group: a set of observations with criminal=0
+
+```
+
+```{r}
+
+
+```
+
+3-2
+```{r}
+applications_white_crime<- applications_white[applications_white$criminal ==1,]
+summary(applications_white_crime)
+Mean   :0.1667 
+
+##Within this experiment, 16.67% of whites with a criminal background received a return call.
+```
+
+3-3
+```{r}
+
+```
+
+```{r}
 
 ```
