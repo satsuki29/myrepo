@@ -4,32 +4,62 @@ author: "satsuki gyoten"
 date: "2023-09-13"
 output: html_document
 ---
-1
+1-1
 ```{r}
 applications<- read.csv("applications.csv")
 
 ```
 
-2
+1-2
 ```{r}
 head(applications)
 
 ```
 
+1-3
 ```{r}
-## The independent variable is the criminal history, and the dependent variable is the whether one will receive a call back for a job interview. The control variable is race. We observe whether criminal history affects the likelihood of receiving a call back.
+## The independent variable(treatment variable) is the criminal history, and the dependent variable(outcome variable) is the whether one will receive a call back for a job interview. The control variable is race. We observe whether criminal history affects the likelihood of receiving a call back.
+
+```
+
+1-4
+```{r}
+## The first and the second (1,2) are counted as one observation.The person at the top of the table applied for job1 (the same job as the second person above), has no criminal record, is white, and received a return call.The second person applied for job1, has criminal record, is white, and received a return call.
+
+```
+
+1-5
+```{r}
+## job_id:numeric_nonbinary
+##criminal:numeric_binary
+##race:character
+##call:numeric_binary
+
+```
+
+1-6
+```{r}
+dim(applications)
+##696observations
+```
+
+2-1
+```{r}
 
 ```
 
 
 ```{r}
-## The person at the top of the table applied for job1 (the same job as the second person above), has no criminal record, is white, and received a return call.
+
+```
+
+
+```{r}
 
 ```
 
 
 
 ```{r}
-
 
 ```
