@@ -1,0 +1,44 @@
+---
+title: "B2 HW (indiscriminate-violence)"
+author: "satsuki gyoten"
+date: "2023-09-20"
+output: html_document
+---
+
+```{r}
+library(readr)
+chechen <- read_csv("B1/chechen.csv")
+
+
+```
+
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
