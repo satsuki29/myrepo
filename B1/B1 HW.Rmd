@@ -51,6 +51,7 @@ View(table_prop2)
 
 
 ```{r}
+##Q2
 users1_indep<- users1[ users1 $world_id=="9",] ## 1:a set of independent condition
 users1_social<- users1[ users1 $world_id=="1",] ##1:a set of social influence 
 
@@ -111,8 +112,34 @@ treatment (social influence) 51.146
 
 
 ```{r}
+#Q3
+#experiment1 download
+
+songs1_indep_download<- songs1$down_indep ## 1:a set of independent condition
+songs1_social_download<- songs1$down_soc## 1:a set of social influence
+
+library(ineq)
+round(ineq(songs1_indep_download),3)
+round(ineq(songs1_social_download),3)
+
+#experiment2 download
+songs2_indep_download<- songs2$down_indep ## 2:a set of independent condition
+songs2_social_download<- songs2$down_soc## 2:a set of social influence
+
+round(ineq(songs2_indep_download),3)
+round(ineq(songs2_social_download),3)
+
+#experiment1 listen
+round(ineq(songs1_indep),3)
+round(ineq(songs1_social),3)
+
+#experiment2 listen
+round(ineq(songs2_indep),3)
+round(ineq(songs2_social),3)
 
 ```
+For both the download and listening variables,in Experiment 1 there was no significant difference in the Gini coefficient between the treatment (social impact) and control (independent) groups, but in Experiment 2, the treatment (social impact) group was significantly more unequal than the control (independent) group.
+
 
 ```{r}
 
