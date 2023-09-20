@@ -44,9 +44,14 @@ In terms of mean, the death in Groznyy was 3.714, while that of the villages out
 
 
 ```{r}
+##Q3
 
+summary(chechen_fire$postattack)
+summary(chechen_nonfire$postattack)
 
 ```
+The average number of insurgent attacks with artillery fire was 1.497, while the average number of attacks in a village without artillery fire was 2.05. For the quartiles, the number of insurgent attacks with artillery fire was respectively  0.000 (25%),0.000 (50%), 1.000 (75%)while the number of attacks in the villages without artillery fire was 0.000 (25%),0.000 (50%), 2.00 (75%)
+
 
 ```{r}
 
