@@ -73,11 +73,22 @@ chechen_fire_diffattack<-mutate(chechen_fire,"diffattack"=chechen_fire$postattac
 
 
 ```
-Of the villages fired by the government, the number of insurgent attacks often decreased.
+It  can be seen from the diffattack term in the chechen_fire_diffattack table that the number of rebel attacks often decreased as villages were attacked by government forces.
 
 
 ```{r}
 ##Q6
 
+a<-round(mean(diffattack_fire),3)  #mean with fire
+
+diffattack_nonfire<- chechen_nonfire$postattack - chechen_nonfire$preattack
+b<-round(mean(diffattack_nonfire),3) #mean without fire
+
+a-b #mean difference
+
 
 ```
+
+Mean difference in the "diffattack" variable was -0.515. Mean with insurgency attack turned out to be little than that without insurgency attack.
+This analysis supports the hypothesis that indiscriminate violence reduces insurgent attacks.
+Also, the validity of this analysis has improved, since what is calculated in Q6 was the mean difference between the treatment group(villages with insurgency attack) and control groups (villages without insurgency attacks) itself an estimate of the average effect of the intervention.
