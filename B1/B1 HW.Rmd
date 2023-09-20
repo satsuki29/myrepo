@@ -31,7 +31,7 @@ group_by(world_id)%>%
 summarise(n = n())
 
 prop<- prop.table(result$n)
-tibble(World_id=c("social","indep"),
+table_prop1<-tibble(World_id=c("social","indep"),
 prop=prop
 )
 
@@ -41,7 +41,7 @@ group_by(world_id)%>%
 summarise(n = n())
 
 prop2<- prop.table(result2$n)
-tibble(World_id=c("social","indep"),
+table_prop2<-tibble(World_id=c("social","indep"),
 prop=prop2
 )
 ```
