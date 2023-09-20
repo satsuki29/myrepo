@@ -22,6 +22,28 @@ users2 <- read_csv("B1/users2.csv")
 
 ```{r}
 
+library(tidyverse)
+##Q1
+##exercise1
+
+result<- users1 %>%
+group_by(world_id)%>%
+summarise(n = n())
+
+prop<- prop.table(result$n)
+tibble(World_id=c("social","indep"),
+prop=prop
+)
+
+##exercise1
+result2<- users2 %>%
+group_by(world_id)%>%
+summarise(n = n())
+
+prop2<- prop.table(result2$n)
+tibble(World_id=c("social","indep"),
+prop=prop2
+)
 ```
 
 ```{r}
