@@ -142,8 +142,34 @@ For both the download and listening variables,in Experiment 1 there was no signi
 
 
 ```{r}
+#Q4
+#experiment1 
+round(mean(users1_indep$web),3)
+round(mean(users1_social$web),3)
+
+
+round(mean(users1_indep$visit),3)
+round(mean(users1_social$visit),3)
+
+
+round(mean(users1_indep$purchase),3)
+round(mean(users1_social$purchase),3) 
+
+#experiment2
+round(mean(users2_indep$web),3)
+round(mean(users1_social$web),3)
+
+round(mean(users2_indep$visit),3)
+round(mean(users2_social$visit),3)
+
+
+round(mean(users2_indep$purchase),3)
+round(mean(users2_social$purchase),3)
 
 ```
+For all web/ visit/ purchase variables, there were no significant differences between the treatment (social influence) and control (independent) groups in both Experiment 1 and Experiment 2.
+
+This indicates that the inequality of downloads and listens shown in the previous question were not influenced by other variables.
 
 ```{r}
 
