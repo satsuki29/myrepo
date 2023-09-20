@@ -70,17 +70,46 @@ round(mean(users2_social$download),3)## treatment condition
 
 
 
+
+##experiment1 number of times listened
+songs1_indep<- songs1$listen_indep ## 1:a set of independent condition
+songs1_social<-songs1$listen_soc ##1:a set of social influence
+
+round(mean(songs1_indep),3)## control condition
+round(mean(songs1_social),3)## treatment condition
+
+
+##experiment2 number of times listened
+songs2_indep<- songs2$listen_indep ## 2:a set of independent condition
+songs2_social<- songs2$listen_soc ## 2:a set of social influence
+
+round(mean(songs2_indep),3)## control condition
+round(mean(songs2_social),3)## treatment condition
+
+
 ```
-answer
+answers
 
 experiment1
 control (independent) 47.155
 treatment (social influence) 42.242
+There is no significant difference between the treatment and control variables.
+
 
 experiment2
-
 control (independent) 124.127
 treatment (social influence) 301.237
+Treatment variables had about 2.5 times more downloads than control variables.
+
+mean of the number listened
+experiment1
+control (independent) 112.375
+treatment (social influence) 51.271
+experiment2
+control (independent) 117.562
+treatment (social influence) 51.146
+
+
 ```{r}
 
 ```
