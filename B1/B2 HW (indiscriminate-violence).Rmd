@@ -46,17 +46,22 @@ In terms of mean, the death in Groznyy was 3.714, while that of the villages out
 ```{r}
 ##Q3
 
-summary(chechen_fire$postattack)
-summary(chechen_nonfire$postattack)
+summary(chechen_fire$postattack) #attacks with artillery fire
+summary(chechen_nonfire$postattack) ##attacks without artillery fire
 
 ```
-The average number of insurgent attacks with artillery fire was 1.497, while the average number of attacks in a village without artillery fire was 2.05. For the quartiles, the number of insurgent attacks with artillery fire was respectively  0.000 (25%),0.000 (50%), 1.000 (75%)while the number of attacks in the villages without artillery fire was 0.000 (25%),0.000 (50%), 2.00 (75%)
+The average number of insurgent attacks with artillery fire was 1.497, while the average number of insurgent attacks in a village without artillery fire was 2.05. For the quartiles, the number of insurgent attacks with artillery fire was respectively  0.000 (25%),0.000 (50%), 1.000 (75%)while the number of insurgent attacks in the villages without artillery fire was 0.000 (25%),0.000 (50%), 2.00 (75%)
+Referring only to these results, it can be said that indiscriminate violence might reduce insurgent attacks. However, it is difficult to say that there is a causal relationship here.
 
 
 ```{r}
+##Q4
 
-
+round(mean(chechen_fire$preattack),3) #attacks with artillery fire
+round(mean(chechen_nonfire$preattack),3) #attacks without artillery fire
 ```
+The average number of pre insurgent attacks with artillery fire was 2.113, while the average number of pre insurgent attacks in a village without artillery fire was 2.151.
+From this, it was found that there was no difference in the nature of the treatment and control groups in terms of the likelihood of an insurgent attack. Therefore, it can be said that the hypothesis" indiscriminate violence will reduce insurgent attacks" is correct.
 
 ```{r}
 
