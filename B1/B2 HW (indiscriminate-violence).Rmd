@@ -64,11 +64,20 @@ The average number of pre insurgent attacks with artillery fire was 2.113, while
 From this, it was found that there was no difference in the nature of the treatment and control groups in terms of the likelihood of an insurgent attack. Therefore, it can be said that the hypothesis" indiscriminate violence will reduce insurgent attacks" is correct.
 
 ```{r}
+##Q5
+diffattack<- chechen$postattack - chechen$preattack
+mutate(chechen,"diffattack"=chechen$postattack - chechen$preattack)
+
+diffattack_fire<- chechen_fire$postattack - chechen_fire$preattack
+chechen_fire_diffattack<-mutate(chechen_fire,"diffattack"=chechen_fire$postattack - chechen_fire$preattack)
 
 
 ```
+Of the villages fired by the government, the number of insurgent attacks often decreased.
+
 
 ```{r}
+##Q6
 
 
 ```
