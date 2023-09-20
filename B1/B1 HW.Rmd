@@ -1,0 +1,19 @@
+---
+title: "B1 HW"
+author: "satsuki gyoten"
+date: "2023-09-20"
+output: html_document
+---
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
