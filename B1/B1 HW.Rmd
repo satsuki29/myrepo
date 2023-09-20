@@ -6,7 +6,17 @@ output: html_document
 ---
 
 ```{r}
+library(readr)
+songs1 <- read_csv("B1/songs1.csv")
 
+library(readr)
+songs2 <- read_csv("B1/songs2.csv")
+
+library(readr)
+users1 <- read_csv("B1/users1.csv")
+
+library(readr)
+users2 <- read_csv("B1/users2.csv")
 ```
 
 
