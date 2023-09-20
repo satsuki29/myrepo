@@ -172,9 +172,13 @@ For all web/ visit/ purchase variables, there were no significant differences be
 This indicates that the inequality of downloads and listens shown in the previous question were not influenced by other variables.
 
 ```{r}
+#Q4
+a<-round(mean(users1_social$download),3) 
+b<-round(mean(users2_social$download),3) 
+
+ATE<- b-a
+
+ATE
 
 ```
-
-```{r}
-
-```
+The difference in the mean number of downloads between experiment 1 and experiment 2 was258.995 . This is consistent with the result of Q3, which showed that in Experiment2, the social impact group was significantly more unequal.
