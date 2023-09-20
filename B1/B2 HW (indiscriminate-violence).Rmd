@@ -9,14 +9,25 @@ output: html_document
 library(readr)
 chechen <- read_csv("B1/chechen.csv")
 
+library(dplyr)
+library(tidyverse)
+
+chechen_fire<- chechen[chechen$fire == 1,]
+chechen_nonfire<- chechen[chechen$fire == 0,]
 
 ```
 
 
 ```{r}
 
+q1<-table(chechen$fire)
+q1
+prop.table(q1)
+
 
 ```
+
+Towns that were attacked and those that were not attacked are 159 each, with a percentage of 50% each.
 
 ```{r}
 
