@@ -19,7 +19,7 @@ chechen_nonfire<- chechen[chechen$fire == 0,]
 
 
 ```{r}
-
+##Q1
 q1<-table(chechen$fire)
 q1
 prop.table(q1)
@@ -29,10 +29,19 @@ prop.table(q1)
 
 Towns that were attacked and those that were not attacked are 159 each, with a percentage of 50% each.
 
-```{r}
 
+```{r}
+##Q2
+
+chechen_groznyy<- chechen[chechen$groznyy==1,]
+chechen_village<- chechen[chechen$groznyy==0,]
+
+summary(na.omit(chechen_groznyy))
+summary(na.omit(chechen_village))
 
 ```
+In terms of mean, the death in Groznyy was 3.714, while that of the villages outside was 1.572. In terms of median,the death in Groznyy was 3.000 , while that of the villages outside was 0.00.
+
 
 ```{r}
 
