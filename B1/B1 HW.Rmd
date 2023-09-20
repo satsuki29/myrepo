@@ -24,7 +24,7 @@ users2 <- read_csv("B1/users2.csv")
 
 library(tidyverse)
 ##Q1
-##exercise1
+##experiment1
 
 result<- users1 %>%
 group_by(world_id)%>%
@@ -34,8 +34,9 @@ prop<- prop.table(result$n)
 table_prop1<-tibble(World_id=c("social","indep"),
 prop=prop
 )
+View(table_prop1)
 
-##exercise1
+##experiment2
 result2<- users2 %>%
 group_by(world_id)%>%
 summarise(n = n())
@@ -44,12 +45,42 @@ prop2<- prop.table(result2$n)
 table_prop2<-tibble(World_id=c("social","indep"),
 prop=prop2
 )
+
+View(table_prop2)
 ```
+
 
 ```{r}
+users1_indep<- users1[ users1 $world_id=="9",] ## 1:a set of independent condition
+users1_social<- users1[ users1 $world_id=="1",] ##1:a set of social influence 
+
+users2_indep<- users2[ users2 $world_id=="9",] ## 2:a set of independent condition
+users2_social<- users2[ users2 $world_id=="1",] ## 2:a set of social influence 
+
+
+##experiment1
+round(mean(users1_indep$download),3)## control condition
+round(mean(users1_social$download),3)## treatment condition
+
+
+
+##experiment2
+round(mean(users2_indep$download),3)## control condition
+round(mean(users2_social$download),3)## treatment condition
+
+
 
 ```
+answer
 
+experiment1
+control (independent) 47.155
+treatment (social influence) 42.242
+
+experiment2
+
+control (independent) 124.127
+treatment (social influence) 301.237
 ```{r}
 
 ```
