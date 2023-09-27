@@ -14,27 +14,22 @@ library(ggplot2)
 ```
 
 ```{r}
-# 1
-VEP_turnout<- ANES$votes/ANES$VEP *100
-
-ANES<- ANES%>%
-  mutate(VEP_turnout=VEP_turnout)
+# part2-1
+ANES$VEP_turnout<- ANES$votes/ANES$VEP *100
 
 # 2
-head(VEP_turnout)
+head(ANES$VEP_turnout)
 ```
 
 The first value was as expected. The unit of measurement is percent.
 
 ```{r}
 # 3
-VAP_turnout<- ANES$votes/ANES$VAP *100
+ANES$VAP_turnout<- ANES$votes/ANES$VAP *100
 
-ANES<- ANES%>%
-  mutate(VAP_turnout=VAP_turnout)
 
 # 4
-head(VAP_turnout)
+head(ANES$VAP_turnout)
 
 ```
 
@@ -67,4 +62,25 @@ This number shows the national average of voter turnout calculated for ANES resp
 ```
 Clearly, ANES_turnout is higher than VEP_turnout. This indicates a social desirability bias in the observations in ANES.
 
+```{r}
+# part 3-1
+
+ANES$turnout_bias<- ANES$ANES_turnout - ANES$VEP_turnout
+
+# 2
+head(ANES$turnout_bias)
+
+```
+The first value was as expected. The unit of measurement is percent.
+
+```{r}
+# 3
+plot(ANES$year,ANES$turnout_bias)
+
+```
+All values are positive, and the variable looks normally distributed.
+
+```{r}
+
+```
 
