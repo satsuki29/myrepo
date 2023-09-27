@@ -62,3 +62,9 @@ mean(ANES$ANES_turnout)
 ```
 This number shows the national average of voter turnout calculated for ANES respondents who reported to have voted in election. Units are in percentages.
 
+```{r}
+# 8
+```
+Clearly, ANES_turnout is higher than VEP_turnout. This indicates a social desirability bias in the observations in ANES.
+
+
