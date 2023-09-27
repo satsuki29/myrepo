@@ -48,14 +48,14 @@ Here, the denominator is VAP>VEP, therefore the actual value is VAP<VEP.
 mean(VEP_turnout)
 
 ```
-This number shows the national average of voter turnout calculated for VEP. Units are in percentages.
+This number shows the average of voter turnout calculated for VEP. Units are in percentages.
 
 ```{r}
 # 7
 mean(ANES$ANES_turnout)
 
 ```
-This number shows the national average of voter turnout calculated for ANES respondents who reported to have voted in election. Units are in percentages.
+This number shows the average of voter turnout calculated for ANES respondents who reported to have voted in election. Units are in percentages.
 
 ```{r}
 # 8
@@ -81,6 +81,44 @@ plot(ANES$year,ANES$turnout_bias)
 All values are positive, and the variable looks normally distributed.
 
 ```{r}
+# 4-a
+turnout.pre_ANES_turnout<- ANES$ANES_turnout[ANES$presidential ==1]
+mean(turnout.pre_ANES_turnout)
+
+turnout.pre_VEP_turnout<- ANES$VEP_turnout[ANES$presidential ==1]
+mean(turnout.pre_VEP_turnout)
+
+turnout.pre_turnout_bias<- ANES$turnout_bias[ANES$presidential ==1]
+mean(turnout.pre_turnout_bias)
+```
+a
+(i)73.28571
+This shows the average of ANES_turnout when focusing only on observations of presidential election. Units are in percentages.
+
+(ii) 55.1871
+This shows the average of VEP_turnout when focusing only on observations of presidential election. Units are in percentages.
+
+(iii)18.09862
+This shows the average of turnout_bias when focusing only on observations of presidential election. Units are in percentages.
+
+
+```{r}
+# 4-b
+turnout.mid<- ANES[ANES$presidential==0,]
+summary(turnout.mid)
+
 
 ```
+b
+(i)55.00
+This shows the average of ANES_turnout when focusing only on observations of midterm election. Units are in percentages.
+(ii) 39.57
+This shows the average of VEP_turnout when focusing only on observations of midterm election. Units are in percentages.
+(iii)15.429 
+This shows the average of turnout_bias when focusing only on observations of midterm election. Units are in percentages.
 
+```{r}
+# 4-c
+```
+
+Presidential elections generally have higher voter turnout, and in addition, the bias tends to be slightly larger for presidential elections, which can be figured out by comparing president's election's turnout_bias  and  midterm election's turnout_bias.
