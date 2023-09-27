@@ -6,9 +6,15 @@ output: html_document
 ---
 
 ```{r}
+library(readr)
+ANES <- read_csv("A3/ANES.csv")
 ```
 
-```{r}
 
+```{r}
+# 1
+VEP_turnout<- ANES$votes/ANES$VEP *100
+# 2
+head(VEP_turnout)
 ```
 
