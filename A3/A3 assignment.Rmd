@@ -8,13 +8,27 @@ output: html_document
 ```{r}
 library(readr)
 ANES <- read_csv("A3/ANES.csv")
+library(dplyr)
+library(ggplot2)
+
 ```
 
 
 ```{r}
 # 1
 VEP_turnout<- ANES$votes/ANES$VEP *100
+
+ANES<
+
 # 2
 head(VEP_turnout)
+```
+
+The first value was as expected. The unit of measurement is percentage.
+
+```{r}
+# 3
+VAP_turnout<- ANES$votes/ANES$VAP *100
+
 ```
 
