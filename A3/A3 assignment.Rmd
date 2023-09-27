@@ -13,22 +13,52 @@ library(ggplot2)
 
 ```
 
-
 ```{r}
 # 1
 VEP_turnout<- ANES$votes/ANES$VEP *100
 
-ANES<
+ANES<- ANES%>%
+  mutate(VEP_turnout=VEP_turnout)
 
 # 2
 head(VEP_turnout)
 ```
 
-The first value was as expected. The unit of measurement is percentage.
+The first value was as expected. The unit of measurement is percent.
 
 ```{r}
 # 3
 VAP_turnout<- ANES$votes/ANES$VAP *100
 
+ANES<- ANES%>%
+  mutate(VAP_turnout=VAP_turnout)
+
+# 4
+head(VAP_turnout)
+
 ```
+
+The first value was as expected. The unit of measurement is percent.
+
+```{r}
+# 5
+```
+
+VEP turnout is always higher.
+This is because VAP includes not only VEP but also felons and non-citizens, which do not have the right to vote.
+Here, the denominator is VAP>VEP, therefore the actual value is VAP<VEP.
+
+```{r}
+# 6
+mean(VEP_turnout)
+
+```
+This number shows the national average of voter turnout calculated for VEP. Units are in percentages.
+
+```{r}
+# 7
+mean(ANES$ANES_turnout)
+
+```
+This number shows the national average of voter turnout calculated for ANES respondents who reported to have voted in election. Units are in percentages.
 
