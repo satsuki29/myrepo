@@ -1,0 +1,11 @@
+---
+title: "B2 homework2 predicting course grades"
+author: "satsuki gyoten"
+date: "2023-10-04"
+output: html_document
+---
+```{r}
+grades<-read.csv("grades.csv")
+head(grades)
+```
+
