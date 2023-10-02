@@ -75,4 +75,4 @@ cor(control_group$feel1, control_group$feel4, use = "complete.obs")
 ```{r}
 
 ```
-
+6.yes
