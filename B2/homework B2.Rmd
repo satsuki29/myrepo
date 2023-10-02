@@ -32,6 +32,18 @@ hist(gay$feel1,freq = F, breaks = 10)
 Yes, they are similar.
 
 ```{r}
+summary(ccap$feel)
+sd(ccap$feel)
 
+summary(gay$feel1)
+sd(gay$feel1)
 ```
+ccap$feel
+mean 58.09
+median 52.00
+standard deviation 28.40383
 
+gay$feel1
+mean 58.63
+median 52.00
+standard deviation 28.55804
