@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+author: "satsuki gyoten"
+date: "2023-10-4"
+output: html_document
+---
+```{r}
+
+ccap <- read.csv("CCAP.csv")
+View(ccap)
+
+
+gay <- read.csv("gay.csv")
+View(gay)
+
+head(ccap, n=4)
+head(gay, n=4)
+
+dim(gay)
+dim(ccap)
+
+```
+
+
+```{r}
+hist(ccap$feel,freq = F, breaks = 10)
+
+hist(gay$feel1,freq = F, breaks = 10)
+
+
+```
+Yes, they are similar.
+
+```{r}
+
+```
+
