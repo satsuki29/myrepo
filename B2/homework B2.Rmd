@@ -57,6 +57,14 @@ standard deviation 28.55804
 No, because Los Angeles is one of the most pro-Democratic cities in the US, and therefore the distribution of "Feel" should lean toward the higher end of the scale.
 
 ```{r}
+control_group <- gay[gay$treatment== "No Contact",]
+plot(x=control_group$feel1, y=control_group$feel2)
+plot(x=control_group$feel1, y=control_group$feel3)
+plot(x=control_group$feel1, y=control_group$feel4)
+```
+
+
+```{r}
 
 ```
 
