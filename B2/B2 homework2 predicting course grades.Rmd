@@ -35,6 +35,23 @@ abline(fit)
 b. final=  -6.0059+ 0.9704*midterm
 
 ```{r}
+# a 
+-6.0059+ 0.9704*80
+
+# b 
+-6.0059+ 0.9704*90
+
+# c 
+0.9704*10
+
+```
+3
+a The best guess of the final exam score is 71.6261 points.
+bThe best guess of the final exam score is 81.3301 points.
+c The score will increase by  9.704 points.
+
+```{r}
 
 ```
 
+4
