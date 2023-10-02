@@ -8,4 +8,29 @@ output: html_document
 grades<-read.csv("grades.csv")
 head(grades)
 ```
+Predicting Course Grades Using Midterm Scores
+
+```{r}
+cor(grades$midterm,grades$final)
+```
+
+1
+a.students
+b. midterm will be our X variable
+c. final  will be our Y variable
+d. 0.7160323
+
+```{r}
+# 2-a
+
+plot(x=grades$midterm ,y= grades$final)
+fit<-lm(grades$final~grades$midterm)
+
+
+# 2-c
+
+abline(fit)
+```
+2
+b. final=  -6.0059+ 0.9704*midterm
 
