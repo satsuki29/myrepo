@@ -19,6 +19,11 @@ a.students
 b. midterm will be our X variable
 c. final  will be our Y variable
 d. 0.7160323
+```{r}
+lm(grades$final~grades$midterm)
+
+```
+
 
 ```{r}
 # 2-a
