@@ -34,3 +34,7 @@ abline(fit)
 2
 b. final=  -6.0059+ 0.9704*midterm
 
+```{r}
+
+```
+
