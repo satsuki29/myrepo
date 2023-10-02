@@ -63,3 +63,4 @@ cor(x= grades$midterm, y=grades$final )^2
 0.5127023
 
 R^2 takes values between 0 and 1. When the number is closer to 0, the worse the accuracy is, and if it is the closer to 1, the better the accuracy of the regression equation. In this case, the value is roughly 0.5, so the accuracy can be evaluated as slightly better.
+Also, this indicates a 51% probability of predicting outcomes.
