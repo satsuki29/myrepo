@@ -20,7 +20,7 @@ dim(gay)
 dim(ccap)
 
 ```
-
+Evidence of Data Fabricaion
 
 ```{r}
 hist(ccap$feel,freq = F, breaks = 10)
@@ -29,6 +29,7 @@ hist(gay$feel1,freq = F, breaks = 10)
 
 
 ```
+1.
 Yes, they are similar.
 
 ```{r}
@@ -38,6 +39,7 @@ sd(ccap$feel)
 summary(gay$feel1)
 sd(gay$feel1)
 ```
+2.
 ccap$feel
 mean 58.09
 median 52.00
@@ -47,3 +49,14 @@ gay$feel1
 mean 58.63
 median 52.00
 standard deviation 28.55804
+
+```{r}
+
+```
+3.
+No, because Los Angeles is one of the most pro-Democratic cities in the US, and therefore the distribution of "Feel" should lean toward the higher end of the scale.
+
+```{r}
+
+```
+
