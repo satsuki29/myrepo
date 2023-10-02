@@ -62,7 +62,15 @@ plot(x=control_group$feel1, y=control_group$feel2)
 plot(x=control_group$feel1, y=control_group$feel3)
 plot(x=control_group$feel1, y=control_group$feel4)
 ```
+4. yes
 
+```{r}
+cor(control_group$feel1, control_group$feel2, use = "complete.obs")
+cor(control_group$feel1, control_group$feel3, use = "complete.obs")
+cor(control_group$feel1, control_group$feel4, use = "complete.obs")
+
+```
+5.yes
 
 ```{r}
 
