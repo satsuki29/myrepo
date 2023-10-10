@@ -27,7 +27,7 @@ e)compound
 4
 a)independent
 b)
-c)
+c)independent
 d)
 e)
 
