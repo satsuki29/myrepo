@@ -26,12 +26,33 @@ e)compound
 
 4
 a)independent
-b)
+b)mutually exclusive and collectively exhaustive
 c)independent
-d)
-e)
+d)mutually exclusive
+e)mutually exclusive and collectively exhaustive
 
 5
-a)
-b)
-c)
+a)true
+b)false
+c)true
+
+6
+it will be 1
+
+7
+```{r}
+Pr_d<- 1-(0.23+0.15+0.46)
+Pr_d+0.23
+```
+ 0.39
+
+8
+it is 0
+
+9
+```{r}
+0.13*0.36
+```
+0.0468
+
+10
