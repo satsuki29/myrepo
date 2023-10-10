@@ -6,23 +6,23 @@ output: html_document
 ---
 
 1
-a)
-b)
-c)
-d)
-e)
+a)objective
+b)subjective
+c)objective
+d)subjective
+e)objective
 
 2
-a)
-b)
-c)
+a)empirical
+b)classical
+c)empirical
 
 3
-a)
-b)
-c)
-d)
-e)
+a)simple
+b)simple
+c)compound
+d)simple
+e)compound
 
 4
 a)
