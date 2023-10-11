@@ -144,4 +144,17 @@ As you can see, the probability doubles when you chage it.
 
 23
 a) 0.3*0.5+ 0.3*0.4 +0.4*0.3 = 0.39 →39%
-B) 
+b) P(C|V) =P(C) * P(V|C) / P(V) = 0.3*0.5/ 0.39 →38%
+c) P(L|V) =P(L) * P(V|L) / P(V)=0.3*0.4/ 0.39 →30%
+d) P(I|V) =P(I) * P(V|I) / P(V)=0.4*0.3/ 0.39 →30%
+
+24
+0.62/ 0.38 =1.63 or 31:19
+
+25
+x1=3/1 X2=1/2
+(3/1)/(1/2)=6 →6
+
+26
+Unemployed people are 1.42(142%)more likely than employed people, 
+and peolple who has a college degree are 0.62(62%)less likely.
