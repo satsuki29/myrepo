@@ -120,3 +120,28 @@ not found
 
 22
 It is better to change the doors because the possibility of opening a door with cars will increase if you change.
+Assume you have opened the door of nubmer 1 in 1-3 doors.
+A1:the treasure is at door 1
+A2:the treasure is at door 2
+A3:the treasure is at door 3
+B1:the man opens door 2
+B2:the man opens door 3
+
+when you don't change
+P(A1|B3) Probability of finding treasure in door 1 when man opens door 3
+=1/3
+P(A1|B2) Probability of finding treasure in door 1 when man opens door 
+2=1/3
+
+when you change
+P(A3|B2)Probability of finding treasure in door 3 when man opens door2 
+=2/3
+P(A2|B3)Probability of finding treasure in door 2 when man opens door3
+=2/3
+
+As you can see, the probability doubles when you chage it.
+
+
+23
+a) 0.3*0.5+ 0.3*0.4 +0.4*0.3 = 0.39 →39%
+B) 
