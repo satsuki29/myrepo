@@ -25,6 +25,19 @@ The same calculation would be done for each of the doors 2 through 7 per door,
 Therefore, you should swtch the door. The probability of success if you switch the door is 2/7.
 
 ```{r}
+sims <- 100000
+doors <- c("goat", "goat", "goat", "goat", "goat", "goat", "car")
+result.switch <- result.noswitch <- rep(NA, sims)
 
+for (i in 1:sims) {
+  first <- sample(1:7, size = 1)
+  result.noswitch[i] <- doors[first]
+  remain <- doors[-first]
+  if (doors[first] == "car") 
+   monty <- sample(1:7, size=3)
+  else
+  monty <- sample(1:7)[remain == "goat"]
+    result.switch[i] <- remain[-monty]
+}
 ```
 
