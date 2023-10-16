@@ -36,7 +36,8 @@ for (i in 1:sims) {
   if (doors[first] == "car") 
    monty <- sample(1:7, size=3)
   else
-  monty <- sample(1:7)[remain == "goat"]
+   monty <- sample(1:7, size = 3 )[remain == "goat"]
+  
     result.switch[i] <- remain[-monty]
 }
 ```
