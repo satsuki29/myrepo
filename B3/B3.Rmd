@@ -32,13 +32,15 @@ result.switch <- result.noswitch <- rep(NA, sims)
 for (i in 1:sims) {
   first <- sample(1:7, size = 1)
   result.noswitch[i] <- doors[first]
+  
+  
   remain <- doors[-first]
   if (doors[first] == "car") 
-   monty <- sample(1:7, size=3)
+   monty <- sample(1:6, size=3)
   else
-   monty <- sample(1:7, size = 3 )[remain == "goat"]
+   monty <- sample(1:6, size = 3 )[remain == "goat"]
   
-    result.switch[i] <- remain[-monty]
+    result.switch[i] <- sample(1:3, size = 1)[-monty]
 }
 ```
 
