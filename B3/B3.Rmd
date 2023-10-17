@@ -4,6 +4,24 @@ author: "satsuki gyoten"
 date: "2023-10-14"
 output: html_document
 ---
+chapter1 problem22
+
+
+Let the six children be three boys, each with ABC, and three girls, each with 123.
+Consider the order in which they are born as frames.
+First, for the first three frames (first born), the permutation of 123 is,
+3*2*1=6.
+Then, for the second three frames, the number if ABC is born (born later) is
+3*2*1=6.
+Hence, the number if the top three are girls is 6*6.
+
+On the other hand, if ABC123 is freely placed in every frame, the permutation is 6!
+
+Hence, the ratio is 6*6/6! = 1/20.
+
+```{r}
+
+```
 
 
 Problem 38 part (a)
