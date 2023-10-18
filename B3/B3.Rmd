@@ -7,6 +7,7 @@ output: html_document
 chapter1 problem22
 
 
+
 Let the six children be three boys, each with ABC, and three girls, each with 123.
 Consider the order in which they are born as frames.
 First, for the first three frames (first born), the permutation of 123 is,
@@ -22,7 +23,20 @@ Hence, the ratio is 6*6/6! = 1/20.
 
 
 ```{r}
+sims <- 100000
+children <- c("girl","girl","girl","boy","boy","boy")
+event <- 0
 
+
+for (i in 1:sims) {
+  orders <- sample(x=children, size=6, replace=FALSE)
+  if (orders[1]=="girl" & orders[2]=="girl" & orders[3]=="girl"){
+    event <- event+1
+  }
+}
+
+answer <- event/sims
+answer
 ```
 
 
@@ -46,21 +60,27 @@ Therefore, you should swtch the door. The probability of success if you switch t
 
 ```{r}
 sims <- 100000
-doors <- c("goat", "goat", "goat", "goat", "goat", "goat", "car")
+doors <- c("goat", "goat", "goat", "goat", "car", "goat", "goat")
 result.switch <- result.noswitch <- rep(NA, sims)
 
-for (i in 1:sims) {
-  first <- sample(1:7, size = 1)
-  result.noswitch[i] <- doors[first]
+  for (i in 1:sims) {
+  ## randomly choose the initial door
+  initialdoor <- sample(1:7, size = 1)
+  result.noswitch[i] <- doors[initialdoor]
+  remain <- doors[-initialdoor] # remaining six doors after initial door is chosen
+  ## Monty chooses three doors with a goat
+  if (doors[initialdoor] == "car"){ # initial door holds the car
+    monty <- sample(1:6, size=3)
+  } else{ # 5 goats and one car left
+    car_placement <- which(grepl("car", remain))
+    tmp <- c(1,2,3,4,5,6)
+    monty <- sample(tmp[tmp!=car_placement], 3)
+  }
+    remain_stp2 <- remain[-monty] 
+    result.switch[i] <- sample(remain_stp2, 1)
+  }
   
-  
-  remain <- doors[-first]
-  if (doors[first] == "car") 
-   monty <- sample(1:6, size=3)
-  else
-   monty <- sample(1:6, size = 3 )[remain == "goat"]
-  
-    result.switch[i] <- sample(1:3, size = 1)[-monty]
-}
+mean(result.noswitch == "car")
+mean(result.switch == "car")
 ```
 
