@@ -38,6 +38,45 @@ for (i in 1:sims) {
 answer <- event/sims
 answer
 ```
+chapter1 problem22
+probability that 5 of each number from 1 to 6 appear is
+30!/5!^6.
+on the other had, the number of all possible outcome is 6^30.
+Therefore, the percentage is around 0.4%.
+
+```{r}
+x<- factorial(30)/factorial(5)^6
+x/6^30
+```
+
+```{r}
+# simulation
+sims <- 100000
+dice <- c(1,2,3,4,5,6)
+
+rollcount <- 0
+favoutcome <- 0
+
+
+for (i in 1:sims) {
+      roll <- sample(x=dice, size=30, replace=TRUE)
+      for(v in 1:6){
+      a <- sum(roll==v)
+      if(a==5){
+        rollcount <- rollcount + 1
+      }
+      } 
+      if(rollcount==6){
+        favoutcome <- favoutcome + 1 
+      }
+      rollcount <-0
+     }
+
+answer <- favoutcome/sims
+answer
+
+```
+
 
 
 Problem 38 part (a)
