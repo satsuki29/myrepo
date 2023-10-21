@@ -4,7 +4,7 @@ author: "satsuki gyoten"
 date: "2023-10-14"
 output: html_document
 ---
-chapter1 problem22
+chapter1 22
 
 
 
@@ -38,7 +38,7 @@ for (i in 1:sims) {
 answer <- event/sims
 answer
 ```
-chapter1 problem34
+chapter1 34
 probability that 5 of each number from 1 to 6 appear is
 30!/5!^6.
 on the other had, the number of all possible outcome is 6^30.
@@ -48,7 +48,34 @@ Therefore, the percentage is around 0.4%.
 x<- factorial(30)/factorial(5)^6
 x/6^30
 ```
-chapter2 problem2
+```{r}
+sims <- 100000
+dice <- c(1,2,3,4,5,6)
+
+rollcount <- 0
+favoutcome <- 0
+
+
+for (i in 1:sims) {
+      roll <- sample(x=dice, size=30, replace=TRUE)
+      for(v in 1:6){
+      a <- sum(roll==v)
+      if(a==5){
+        rollcount <- rollcount + 1
+      }
+      } 
+      if(rollcount==6){
+        favoutcome <- favoutcome + 1 
+      }
+      rollcount <-0
+     }
+
+answer <- favoutcome/sims
+answer
+```
+
+
+chapter2 2
 
 In order to know if they are identical twins, we must see if they are identical twins, provided that the children are of the same sex. In other words, this is an appropriate use of Bayes' theorem.
 Therefore what we want to know is
@@ -73,38 +100,14 @@ for (i in 1:sims) {
 answer <- event/sims
 answer
 ```
-
-```{r}
-# simulation
-sims <- 100000
-dice <- c(1,2,3,4,5,6)
-
-rollcount <- 0
-favoutcome <- 0
-
-
-for (i in 1:sims) {
-      roll <- sample(x=dice, size=30, replace=TRUE)
-      for(v in 1:6){
-      a <- sum(roll==v)
-      if(a==5){
-        rollcount <- rollcount + 1
-      }
-      } 
-      if(rollcount==6){
-        favoutcome <- favoutcome + 1 
-      }
-      rollcount <-0
-     }
-
-answer <- favoutcome/sims
-answer
-
-```
+chapter2 32
 
 
 
-Problem 38 part (a)
+
+
+
+Chapter2 38 part (a)
 There are doors named 1~7.
 Assume that you will choose the door 1 at first and the car is actually in the door2(this condition will be explained as C2).
 
