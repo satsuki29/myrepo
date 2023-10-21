@@ -38,7 +38,7 @@ for (i in 1:sims) {
 answer <- event/sims
 answer
 ```
-chapter1 problem22
+chapter1 problem34
 probability that 5 of each number from 1 to 6 appear is
 30!/5!^6.
 on the other had, the number of all possible outcome is 6^30.
@@ -48,7 +48,14 @@ Therefore, the percentage is around 0.4%.
 x<- factorial(30)/factorial(5)^6
 x/6^30
 ```
+chapter2 problem2
 
+In order to know if they are identical twins, we must see if they are identical twins, provided that the children are of the same sex. In other words, this is an appropriate use of Bayes' theorem.
+Therefore what we want to know is
+P(identical| boy)= P(2 boys|identical) P(identical)/ P(boys)
+=1/2 (can be caluculated from the given information)
+
+The probability is the same with girls as well.
 ```{r}
 # simulation
 sims <- 100000
