@@ -85,26 +85,135 @@ P(identical| boy)= P(2 boys|identical) P(identical)/ P(boys)
 The probability is the same with girls as well.
 
 ```{r}
-sims <- 100000
-children <- c("G","G","G","B","B","B")
-event <- 0
+twintype <- c("frat","frat","ident")
+fratcombo <- c("BB","BG","GB","GG")
+identcombo <- c("BB","GG")
 
+identBBcount <- 0
+BBcount <- 0
 
-for (i in 1:sims) {
-  orders <- sample(x=children, size=6, replace=FALSE)
-  if (orders[1]=="B" & orders[2]=="B" & orders[3]=="B"){
-    event <- event+1
+for (i in 1:sims){
+  twintypei <- sample(twintype, 1)
+  if(twintypei=="frat"){
+    sexcombo <- sample(fratcombo, 1)
+  }
+  else{
+    sexcombo <- sample(identcombo, 1)
+  }
+  if(twintypei=="ident" & sexcombo == "BB"){
+    identBBcount <- identBBcount + 1
+  }
+  if(sexcombo == "BB"){
+    BBcount <- BBcount+1
   }
 }
 
-answer <- event/sims
+answer <- identBBcount/BBcount
 answer
 ```
+
+
 chapter2 32
 
+(a)
+1
+A>B :A=4
+P(A>B)= 4/6*1= 2/3
+
+2
+B>C: C=2
+P(B>C)=2/3* 1= 2/3
+
+3
+C>D: C=6 OR C=2, D=5
+p(C>D)=1/3 *1 + 4/6* 3/6= 2/3
+
+4
+D>A: D=5 OR D=1, A=4
+P(D>A)= 3/6+ 3/6* 4/6= 2/3
+
+(b)
+From the answers above, A>B is independent from B>C, because condition of B has nothing to do with both A>B and B>C.
+On the other hand, B>C is not independent from C>D, because condition of C matters for both B>C and C>D.
 
 
 
+```{r}
+a <- c(4,4,4,4,0,0)
+b <- c(3,3,3,3,3,3)
+c <- c(6,6,2,2,2,2)
+d <- c(5,5,5,1,1,1)
+
+acount <- 0
+bcount <- 0
+ccount <- 0
+dcount <- 0
+
+aacount <- 0
+abcount <- 0
+
+for (i in 1:sims){
+  aroll <- sample(x=a, size=1, replace = TRUE)
+  broll <- sample(x=b, size=1, replace = TRUE)
+  croll <- sample(x=c, size=1, replace = TRUE)
+  droll <- sample(x=d, size=1, replace = TRUE)
+  
+  # PART A
+  if(aroll>broll){
+    acount <- acount + 1
+  }
+   if(broll>croll){
+    bcount <- bcount + 1
+   }
+   if(croll>droll){
+    ccount <- ccount + 1
+   }
+   if(droll>aroll){
+    dcount <- dcount + 1
+   }
+ 
+   # PART B
+  if(broll>croll){
+    if(aroll>broll){
+      aacount <- aacount + 1
+      }
+    }
+  if(broll>croll){
+    if(croll>droll){
+      abcount <- abcount + 1
+      }
+    }
+}
+
+aanswer <- acount/sims
+banswer <- bcount/sims
+canswer <- ccount/sims
+danswer <- dcount/sims
+aanswer
+
+```
+
+```{r}
+banswer
+```
+
+```{r}
+canswer
+```
+
+```{r}
+danswer
+```
+
+```{r}
+baanswer <- aacount/bcount
+baanswer
+```
+
+```{r}
+bbanswer <- abcount/ccount
+bbanswer
+```
 
 
 Chapter2 38 part (a)
