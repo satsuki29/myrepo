@@ -56,6 +56,24 @@ P(identical| boy)= P(2 boys|identical) P(identical)/ P(boys)
 =1/2 (can be caluculated from the given information)
 
 The probability is the same with girls as well.
+
+```{r}
+sims <- 100000
+children <- c("G","G","G","B","B","B")
+event <- 0
+
+
+for (i in 1:sims) {
+  orders <- sample(x=children, size=6, replace=FALSE)
+  if (orders[1]=="B" & orders[2]=="B" & orders[3]=="B"){
+    event <- event+1
+  }
+}
+
+answer <- event/sims
+answer
+```
+
 ```{r}
 # simulation
 sims <- 100000
