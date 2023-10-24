@@ -1,0 +1,11 @@
+---
+title: "A4 HW"
+author: "satsuki gyoten"
+date: "2023-10-24"
+output: html_document
+---
+
+```{r}
+
+```
+
