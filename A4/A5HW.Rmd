@@ -20,6 +20,9 @@ Frequency distribution:frequency count that have a certain value.
 Relative frequency distribution:frequency proportion that have a certain value.
 
 3
+This is because PDF is basically about the theoretical probability but relative frequency distribution is basically about sample distribution.
+
+4
 
 ```{r}
 
