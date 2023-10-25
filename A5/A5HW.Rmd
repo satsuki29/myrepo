@@ -30,7 +30,19 @@ On the other hand, CDF indicates the probability of a random variable taking les
 When comparing whether Republican or Democratic supporters are more likely to vote. For example, a contingency table can be created with 1 Republican supporter and 0 Democrat supporter/ 1 who goes to the polls and 1 who does not.
 
 6
+Bernoulli distribution: the process by which it rains on election day
+Poisson distribution: A process in which a resident in Japan do not have the right to vote
 
+7
+Sorry, I can't find the designated experimental site, as if the website has been redesigned.
+
+8
+What I checked: Japan's working population
+What I found: Data from 1975 to 2019 shows an increase of roughly 20 million people. / The increase is a flat steady increase.
+selecting a co variable:Japan's population
+what I found: There was a similar trend between the two/ However,the gap between the population and the working population is wider today than in the past.
+
+9
 ```{r}
 
 ```
