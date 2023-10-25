@@ -119,3 +119,20 @@ PDF is basically about the theoretical probability. On the other hand,relative f
 It is because PDF PDF shows a continuous rather than a discrete probability distribution.
 
 8
+Var(X)= E[(X-µ)^2]=integral f((X-µ)^2)dx
+=integral f(X^2+µ^2-2Xµ)dx
+=integral f (X^2)
+sorry I could not solve this
+
+
+9
+probability that one cannot benefit
+10/25 = 0.4
+Therefore probability that one can benefit will be
+1-0.4= 0.6
+
+10
+It shows that the annual budget deficit (surplus) of each country follows a normal distribution of N (-100 million, (300million)^2). Hence, about 68% of the countries have annual budgets between -100M-300M and -100M+300M.
+
+
+11
