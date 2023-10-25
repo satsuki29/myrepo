@@ -65,4 +65,4 @@ EU(S)=p(S)*U(BT)+p(notS)*U(BA)
 Therefore,the woman should head to Bach concert.
 
 2)
-
+aa
