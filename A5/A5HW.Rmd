@@ -1,9 +1,35 @@
 ---
-title: "A4 HW"
+title: "A5 HW"
 author: "satsuki gyoten"
 date: "2023-10-24"
 output: html_document
 ---
+10.9 exercisea
+
+1
+
+Why do people move toward elections the more they feel the eyes of others on them?
+
+Assumption: People want to be trusted by those around them. Feeling the eyes of others refers to the situation where one's actions are being watched by others.
+Model: People who want to be trusted by those around them will move toward the more they feel the eyes of others on them.
+Hypotheses:
+When comparing the case where neighbors can know whether a person went to the polls or not (A) and the case where they cannot know (B), those who fall into the former case (A) have a higher voter turnout.
+
+2
+Frequency distribution:frequency count that have a certain value.
+Relative frequency distribution:frequency proportion that have a certain value.
+
+3
+This is because PDF is basically about the theoretical probability but relative frequency distribution is basically about sample distribution.
+
+4
+PMF uses a discrete type of random variable to indicate the probability of a random variable taking a particular value (for example, a dice experiment).
+On the other hand, CDF indicates the probability of a random variable taking less than a specific value, and can be applied to continuous or discrete random variables, and this CDF is integrated to find the probability from one value to another.
+
+5
+When comparing whether Republican or Democratic supporters are more likely to vote. For example, a contingency table can be created with 1 Republican supporter and 0 Democrat supporter/ 1 who goes to the polls and 1 who does not.
+
+6
 
 ```{r}
 
