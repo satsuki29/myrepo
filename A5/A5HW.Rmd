@@ -65,4 +65,13 @@ EU(S)=p(S)*U(BT)+p(notS)*U(BA)
 Therefore,the woman should head to Bach concert.
 
 2)
-aa
+EU(B)=p(B)*U(BT)+p(notB)*U(BA)
+=0.3*(10+8)+0.7*(10-2)
+=11
+
+EU(S)=p(S)*U(BT)+p(notS)*U(BA)
+=0.7*(5+8)+0.3*(5-2)
+=10
+
+Therefore,the woman should head to Bach concert.
+
