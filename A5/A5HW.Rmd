@@ -4,7 +4,7 @@ author: "satsuki gyoten"
 date: "2023-10-24"
 output: html_document
 ---
-10.9 exercisea
+10.9 exercise
 
 1
 
@@ -93,4 +93,19 @@ EU(stay)=0
 The Expected Utility in total is -4/7+3/7+0=-1/7.
 Therefore, A should not start a war when it observed maneuvers.
 
+
+
+11.4 exercise
+1
+This is because PDF is basically about the theoretical probability but relative frequency distribution is basically about sample distribution.
+
+2
+PMF uses a discrete type of random variable to indicate the probability of a random variable taking a particular value (for example, a dice experiment).On the other hand,CDF indicates the probability of a random variable taking a specific value.
+
+
+3
+A probability density function (pdf) is the derivative of a cumulative distribution function (cdf). 
+
+4
+joint distribution of GDP and intelligence
 
