@@ -100,7 +100,7 @@ Therefore, A should not start a war when it observed maneuvers.
 This is because PDF is basically about the theoretical probability but relative frequency distribution is basically about sample distribution.
 
 2
-PMF uses a discrete type of random variable to indicate the probability of a random variable taking a particular value (for example, a dice experiment).On the other hand,CDF indicates the probability of a random variable taking a specific value.
+PMF uses a discrete type of random variable to indicate the probability of a random variable taking a particular value (for example, a dice experiment). On the other hand,CDF indicates the probability of a random variable taking less than a specific value, and can be applied to continuous or discrete random variables.
 
 
 3
@@ -113,7 +113,9 @@ joint distribution of GDP and intelligence
 A normal distribution means that when a sample of size n is randomly selected from a population with population mean μ and population variance σ^2, the sample mean X approximately follows N(μ,σ^2/n) when n is large. The reason it is not clear whether the distribution follows a normal distribution just by looking at it is that it is not clear whether it actually follows this definition.
 
 6
-PDF is basically about the theoretical probability
+PDF is basically about the theoretical probability. On the other hand,relative frequency distribution is basically about sample distribution.
 
 7
-It is because the specific value that one is interested is
+It is because PDF PDF shows a continuous rather than a discrete probability distribution.
+
+8
