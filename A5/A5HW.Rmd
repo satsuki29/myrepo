@@ -34,7 +34,7 @@ Bernoulli distribution: the process by which it rains on election day
 Poisson distribution: A process in which a resident in Japan do not have the right to vote
 
 7
-Sorry, I can't find the designated experimental site, as if the website has been redesigned.
+Sorry, I can't find the designated experimental site, as the website has been redesigned.
 
 8
 What I checked: Japan's working population
@@ -43,7 +43,10 @@ selecting a co variable:Japan's population
 what I found: There was a similar trend between the two/ However,the gap between the population and the working population is wider today than in the past.
 
 9
+3^4/ e^3*4! =0.1680314
 ```{r}
-
+x<- exp(1)^3*factorial(4)
+3^4/ x
 ```
 
+10
