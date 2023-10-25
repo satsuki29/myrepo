@@ -72,6 +72,15 @@ EU(B)=p(B)*U(BT)+p(notB)*U(BA)
 EU(S)=p(S)*U(BT)+p(notS)*U(BA)
 =0.7*(5+8)+0.3*(5-2)
 =10
-
 Therefore,the woman should head to Bach concert.
 
+11
+set events as follows
+S:B is stronger
+W:B is weaker
+O: maneuver were observed
+
+When A decides to star a war, there are 2 consequences, winning and losing.
+
+probability to win
+P(win)= P(S|O)=P(O|S)P(S)/ P(O)=
