@@ -82,5 +82,15 @@ O: maneuver were observed
 
 When A decides to star a war, there are 2 consequences, winning and losing.
 
+probability to lose
+P(lose)= P(S|O)=P(O|S)P(S)/ P(O)=4/7
+therefore, EU(lose)=4/7*(-1)= -4/7
 probability to win
-P(win)= P(S|O)=P(O|S)P(S)/ P(O)=
+P(win)= P(W|O)=P(O|W)P(W)/ P(O)=4/7
+therefore, EU(lose)=3/7*1=3/7
+EU(stay)=0
+
+The Expected Utility in total is -4/7+3/7+0=-1/7.
+Therefore, A should not start a war when it observed maneuvers.
+
+
