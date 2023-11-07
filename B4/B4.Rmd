@@ -27,7 +27,32 @@ coin_flip()
 From the code above, we can simulate a coin flip. 
 When coin_flip() was called 10 times, the result was A. This shows that the chances of getting each side of the coin are actually about 0.5 each.
 
-```{r}
 
+```{r}
+set.seed(36850)
+flip1 <- coin_flip()
+flip2 <- coin_flip()
+flip3 <- coin_flip()
+flip4 <- coin_flip()
+
+# Example flips, they will always be the same because I set a random seed.
+flip1 # H
+flip2 # T
+flip3 # T
+flip4 # H
+
+# Function that acts like a random variable.
+# returns 1 if flip == "H" and 0 otherwise.
+
+X_coin <- function(flip){
+  ifelse(flip == "H",1,0)
+}
+
+
+# The code below should return a 1 for flip1 and flip4 and 0 for flip2 and flip3
+X_coin(flip1)
+X_coin(flip2)
+X_coin(flip3)
+X_coin(flip4)
 ```
 
