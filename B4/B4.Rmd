@@ -1,0 +1,33 @@
+---
+title: "B4"
+author: "satsuki gyoten"
+date: "2023-11-07"
+output: html_document
+---
+1.
+```{r}
+set.seed(36850) # set random seed so that you get the same output everytime even though it's "random"
+
+sample_space_coin <- c("H", "T")
+event_probs_coin <- c(0.5, 0.5)
+
+
+coin_flip <- function(){
+  sample(
+    size = 1,
+    x = sample_space_coin,
+    prob = event_probs_coin,
+    replace = TRUE
+  )
+}
+
+coin_flip()
+
+```
+From the code above, we can simulate a coin flip. 
+When coin_flip() was called 10 times, the result was A. This shows that the chances of getting each side of the coin are actually about 0.5 each.
+
+```{r}
+
+```
+
