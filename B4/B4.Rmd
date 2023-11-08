@@ -113,8 +113,79 @@ X_biased_coin(flip4)
 ```
 5. Using math, calculate:
   a. The expectation of `X_coin()`
-     (0.5*1+0.5*1+0.5*0+0.5*0)/4=0.25
+     (0.5*1+0.5*0)/2=0.25
   b. The expectation of `X_biased_coin()`
-     (0.7*1+)
+     (0.7*1+0.3*0)/2=0.35
   c. The expectation of `X_coin()` + `X_biased_coin()`
+   X_coin()` + `X_biased_coin()`=
+   
+6. Use simulation to estimate:
+  a. The expectation of `X_coin()`
+  0.25+0.35=0.6
+```{r}
+sims <- 100000
+coin <- c("H","T")
+event <-0
+event2 <-0
+
+for (i in 1:sims) {
+  flip <- sample(x=coin, size=1, replace=TRUE)
+   if (flip =="H" ){
+    event <- event+1
+   }
+   else{
+    event2 <- event2+1
+   }
+}
+
+ event/sims
+ event2/sims
+```
+from the code above, we can say that the probability of getting an "H" and tail is both around 0.5.
+Therefore, the expectation of X_coin() is
+ (0.5*1+0.5*0)/2=0.25
+ 
+ 
+  
+  b. The expectation of `X_biased_coin()`
+```{r}
+sims <- 100000
+coin <- c("H","T")
+prob <- c(0.7, 0.3)  
+event <-0
+event2 <-0
+
+for (i in 1:sims) {
+  flip <- sample(x=coin, size=1, replace=TRUE, prob=prob)
+   if (flip=="H" ){
+    event <- event+1
+   }
+   else{
+    event2 <- event2+1
+   }
+}
+
+event/sims
+event2/sims
+```
+from the code above, we can say that the probability of getting an "H" and tail is both around 0.5.
+Therefore, the expectation of X_coin() is
+(0.7*1+0.3*0)/2=0.35
+ 
+  c. The expectation of `X_coin()` + `X_biased_coin()`
+```{r}
+sims <- 100000
+coin <- c(1,0)
+prob <- c(0.7, 0.3)  
+
+flips <- rep(NA, sims)
+
+for (i in 1:sims) {
+  flips[i] <- sample(x=coin, size=1, replace=TRUE, prob=prob)
+}
+
+mean(flips)
+
+```
+  
   
