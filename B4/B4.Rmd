@@ -245,3 +245,36 @@ is 1.2.
 7. Imagine an experiment similar to the one we discussed. Students can use a drug, Getana. We are interested in studying the effect of Getana on student's GPA. In the code below, I've defined:
   a. A student index 1-6, it just assignes each student a number.
   b. A potential outcome for each student under treatement, Y1, and control, Y0. Note that the potential outcomes are the same, indicating that there is 0 effect
+```{r}
+student_index <- 1:6
+Y1 <- c(4, 4, 3, 2, 1,1)
+Y0 <- Y1
+```
+Now, simulate what happens if we randomly sample 1 student to be in the Treatment group (so we see their GPA under Y1), and we sample a different student to be in Control (so we see their GPA under Y0). What will the average difference in GPA's be between the Treatment subject and Control subject? Compare the results to what you get if you simply subtract the mean of Y0 from the mean of Y1.
+
+```{r}
+set.seed(36850)
+
+nsims <- 100000
+
+gpa_treat_minus_control_sims <- vector(mode = "numeric",
+                                       length = nsims)
+
+for(i in 1:nsims){
+  treated_subj_index <- sample(student_index, 
+                               size = 1)
+  control_subj_index <- sample(student_index[-treated_subj_index], 
+                               size = 1)
+  observed_treatement_GPA <- Y1[treated_subj_index]
+  observed_control_GPA <- Y0[control_subj_index]
+    
+  gpa_treat_minus_control_sims[i] <- observed_treatement_GPA - observed_control_GPA # What is the observed difference in gpas between treatment and control subjects?
+}
+
+# Calculate the average of gpa_treat_minus_control_sims
+mean(gpa_treat_minus_control_sims)
+mean(Y1 - Y0)
+```
+Create a histogram of `gpa_treat_minus_control_sims` using ggplot. Make it look as good as you can, with proper axis labels.
+
+
