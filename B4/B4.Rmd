@@ -58,20 +58,60 @@ X_coin(flip4)
 3.
 Treating `X_coin()` like a random variable describe it:
   a. What is the probability of 1? ->0.5
-```{r}
-sims<- 10000
-event <- 0
+  b. What is the probability of 0? ->0.5
+  c. What is the expectation of `X_coin()`?->0.5
+  d. What is the variance of `X_coin()`?-> 0.25
 
-for (i in 1:sims) {
-orders<- sample(X_coin(flip ))
-if(orders==1){
-  event<- event+1
+
+4. Define a new function `biased_coin_flip()` that acts like `coin_flip()` except it returns "H" 70 percent of the time.
+```{r}
+set.seed(36850) # set random seed so that you get the same output everytime even though it's "random"
+
+sample_space_coinb <- c("H", "T")
+event_probs_coinb <- c(0.7, 0.3)
+
+biased_coin_flip <- function(){
+  sample(
+    size = 1,
+    x = sample_space_coinb,
+    prob = event_probs_coinb,
+    replace = TRUE
+  )
 }
- }
-answer <- event/sims
-answer
+
+biased_coin_flip()
+
 ```
-  
-  b. What is the probability of 0?
-  c. What is the expectation of `X_coin()`?
-  d. What is the variance of `X_coin()`?
+
+5. Define a new random variable `X_biased_coin()` that returns a 1 if flip is "H" and returns 0 if flip is "T"
+```{r}
+set.seed(36850)
+flip1 <- biased_coin_flip()
+flip2 <- biased_coin_flip()
+flip3 <- biased_coin_flip()
+flip4 <- biased_coin_flip()
+
+# Example flips, they will always be the same because I set a random seed.
+flip1 # H
+flip2 # T
+flip3 # T
+flip4 # H
+
+# Function that acts like a random variable.
+# returns 1 if flip == "H" and 0 otherwise.
+
+X_biased_coin <- function(flip){
+  ifelse(flip == "H",1,0)
+}
+
+
+# The code below should return a 1 for flip1 and flip4 and 0 for flip2 and flip3
+X_biased_coin(flip1)
+X_biased_coin(flip2)
+X_biased_coin(flip3)
+X_biased_coin(flip4)
+```
+5. Using math, calculate:
+  a. The expectation of `X_coin()`
+  b. The expectation of `X_biased_coin()`
+  c. The expectation of `X_coin()` + `X_biased_coin()`
