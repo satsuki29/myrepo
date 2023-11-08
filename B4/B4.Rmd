@@ -291,3 +291,41 @@ ggplot(data = df, mapping = aes(gpa_treat_minus_control_sims)) +
           
 ```
 
+8. Repeat questions 7 and 7 above for the new potential outcomes defined below. Compare the results to what you get if you simply subtract the mean of Y0 from the mean of Y1.
+```{r}
+set.seed(36850)
+student_index <- 1:6
+Y1 <- c(4, 4, 3, 3, 4, 1)
+Y0 <- c(2, 1, 4, 2, 1, 1)
+
+set.seed(36850)
+
+nsims <- 100000
+
+gpa_treat_minus_control_sims <- vector(mode = "numeric",
+                                       length = nsims)
+
+for(i in 1:nsims){
+  treated_subj_index <- sample(student_index, 
+                               size = 1)
+  control_subj_index <- sample(student_index[-treated_subj_index], 
+                               size = 1)
+  observed_treatement_GPA <- Y1[treated_subj_index]
+  observed_control_GPA <- Y0[control_subj_index]
+    
+  gpa_treat_minus_control_sims[i] <- observed_treatement_GPA - observed_control_GPA # What is the observed difference in gpas between treatment and control subjects?
+}
+
+# Calculate the average of gpa_treat_minus_control_sims
+mean(gpa_treat_minus_control_sims)
+mean(Y1 - Y0)
+```
+```{r}
+
+df <- data.frame(gpa_treat_minus_control_sims)
+
+ggplot(data = df, mapping = aes(gpa_treat_minus_control_sims)) +
+  geom_histogram(binwidth = 1, fill = "red", color = "white") +
+  labs(x = "gap", y = "counts", title = "gpa_treat_minus_control")
+          
+```
