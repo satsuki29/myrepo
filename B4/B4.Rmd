@@ -277,4 +277,17 @@ mean(Y1 - Y0)
 ```
 Create a histogram of `gpa_treat_minus_control_sims` using ggplot. Make it look as good as you can, with proper axis labels.
 
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+```{r}
+
+df <- data.frame(gpa_treat_minus_control_sims)
+
+ggplot(data = df, mapping = aes(gpa_treat_minus_control_sims)) +
+  geom_histogram(binwidth = 1, fill = "red", color = "white") +
+  labs(x = "gap", y = "counts", title = "gpa_treat_minus_control")
+          
+```
 
