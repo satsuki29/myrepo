@@ -101,7 +101,7 @@ flip4 # H
 # returns 1 if flip == "H" and 0 otherwise.
 
 X_biased_coin <- function(flip){
-  ifelse(flip == "H",1,0)
+  ifelse( biased_coin_flip() == "H",1,0)
 }
 
 
@@ -117,7 +117,7 @@ X_biased_coin(flip4)
   b. The expectation of `X_biased_coin()`
     0.7*1+0.3*0=0.7
   c. The expectation of `X_coin()` + `X_biased_coin()`
-   X_coin()` + `X_biased_coin()`=
+  E( X_coin()` + `X_biased_coin())`= E X_coin()`+E X_biased_coin()
    0.5+0.7=1.2
    
 6. Use simulation to estimate:
@@ -145,7 +145,20 @@ for (i in 1:sims) {
 from the code above, we can say that the probability of getting an "H" and tail is both around 0.5.
 Therefore, the expectation of X_coin() is
  0.5*1+0.5*0=0.5
- 
+or, it can be caluvulated like below
+```{r}
+sims <- 100000
+coin <- c(1,0)
+prob <- c(0.5, 0.5)  
+
+flips <- rep(NA, sims)
+
+for (i in 1:sims) {
+  flips[i] <- sample(x=coin, size=1, replace=TRUE, prob=prob)
+}
+
+mean(flips)
+```
  
   
   b. The expectation of `X_biased_coin()`
@@ -172,22 +185,8 @@ event2/sims
 from the code above, we can say that the probability of getting an "H" and tail is both around 0.5.
 Therefore, the expectation of X_coin() is
 0.7*1+0.3*0=0.7
- 
-  c. The expectation of `X_coin()` + `X_biased_coin()`
-```{r}
-sims <- 100000
-coin <- c(1,0)
-prob <- c(0.5, 0.5)  
 
-flips <- rep(NA, sims)
-
-for (i in 1:sims) {
-  flips[i] <- sample(x=coin, size=1, replace=TRUE, prob=prob)
-}
-
-mean(flips)
-```
-
+or, it can be calculated like below,
 ```{r}
 sims <- 100000
 coin <- c(1,0)
@@ -204,6 +203,45 @@ mean(flips)
 
 
 ```
+ 
+ c. The expectation of `X_coin()` + `X_biased_coin()`
+```{r}
+set.seed(36850)
+
+nsims <- 100000
+
+# vectors where you can store the results of simulation for a, b, and c
+X_coin_sims <- vector(mode = 'numeric', length = nsims)
+X_biased_coin_sims <- vector(mode = 'numeric', length = nsims)
+unbiased_plus_biased_coin_sims <- vector(mode = 'numeric', length = nsims)
+
+
+for(i in 1:nsims){
+  sim_flip_i <- coin_flip()
+  X_coin_sims[i] <- X_coin(sim_flip_i)
+  
+  sim__biasedflip_i <- biased_coin_flip
+  X_biased_coin_sims[i] <- X_biased_coin(sim__biasedflip_i)
+  
+  unbiased_plus_biased_coin_sims[i] <- X_coin_sims[i]+X_biased_coin_sims[i] 
+  
+}
+
+# use head to see the first part of the result of the simulations
+head(unbiased_plus_biased_coin_sims)
+
+# calculate the expectation of the simulations using mean()
+mean( unbiased_plus_biased_coin_sims)
+
+
+
+```
+
+
 from the code above, the expectation of `X_coin()` + `X_biased_coin()`
 is 1.2.
 
+
+7. Imagine an experiment similar to the one we discussed. Students can use a drug, Getana. We are interested in studying the effect of Getana on student's GPA. In the code below, I've defined:
+  a. A student index 1-6, it just assignes each student a number.
+  b. A potential outcome for each student under treatement, Y1, and control, Y0. Note that the potential outcomes are the same, indicating that there is 0 effect
