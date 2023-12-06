@@ -1,0 +1,46 @@
+---
+title: "Homework B5"
+author: "satsuki gyoten"
+date: "2023-12-06"
+output: html_document
+---
+```{r}
+library(ggplot2)
+library(readr)
+
+elite_ug_1 <- read_csv("elite.ug_1.csv")
+elite_ug_lk_patience_dists <- read_csv("elite.ug.lk.patience.dists.csv")
+pnas_elite_turk_data_1 <- read_csv("pnas.elite.turk.data_1.csv")
+
+View(elite_ug_1)
+View(elite_ug_lk_patience_dists)
+View(pnas_elite_turk_data_1)
+
+
+```
+
+
+
+```{r}
+# takes a numeric vector and returns a standard error of the mean
+sem <- function(x){
+  if(!is.numeric(x)){
+    "Error: x needs to be a numeric variable"
+  }
+  x_complete <- na.omit(x)
+  n <- length() # fill this in
+  sd_hat <- # estimate standard deviation of the variable using the sd() function, or code your own.
+  sem <- # calcuate sem
+  return(sem)    
+}
+```
+
+Next, create a test statistic as described in lecture and the notes. Test the null hypothesis that that the difference between elite and undergraduate MA0's is 0. Use an alpha 0.05. 
+
+```{r}
+D_hat <- ## insert difference in means estimator
+se_D_hat <- ##  calculate standard error for difference in means estimator using notes / slides
+test_statistic <- (D_hat - 0)/se_D_hat
+
+pnorm() # use pnorm to analyze the test statistic under the null hypothesis as shown in the lecture slides
+```
