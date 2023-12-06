@@ -7,6 +7,8 @@ output: html_document
 ```{r}
 library(ggplot2)
 library(readr)
+library(tidyverse)
+library(dplyr)
 
 elite_ug_1 <- read_csv("elite.ug_1.csv")
 elite_ug_lk_patience_dists <- read_csv("elite.ug.lk.patience.dists.csv")
@@ -19,7 +21,13 @@ View(pnas_elite_turk_data_1)
 
 ```
 
+```{r}
+ug_bargeningbehavior <- pnas_elite_turk_data_1[pnas_elite_turk_data_1$elite == 0, ]
 
+el_bargeningbehavior <-pnas_elite_turk_data_1[pnas_elite_turk_data_1$elite == 1, ]
+
+
+```
 
 ```{r}
 # takes a numeric vector and returns a standard error of the mean
@@ -28,19 +36,34 @@ sem <- function(x){
     "Error: x needs to be a numeric variable"
   }
   x_complete <- na.omit(x)
-  n <- length() # fill this in
-  sd_hat <- # estimate standard deviation of the variable using the sd() function, or code your own.
-  sem <- # calcuate sem
+  n <- length(x_complete) 
+  sd_hat <- sd(x_complete)# estimate standard deviation of the variable using the sd() function, or code your own.
+  sem <- sd_hat/sqrt(n)
   return(sem)    
 }
 ```
 
+```{r}
+panas_2<- pivot_longer(pnas_elite_turk_data_1,cols = c("propose","demand"))
+
+cleandata<- panas_2%>%
+  group_by(name) %>%
+  summarize(mean_Value= mean (na.omit(value)), sd_Value =sd (na.omit(value)), count= n(),se_Value=sem(na.omit(value)))
+view(cleandata)
+
+t_test<- t.test(x= ug_bargeningbehavior$demand,y= el_bargeningbehavior$demand, conf.level = 0.95, var.equal = T, na.rm= T)
+pvalue_1<- t_test$p.value
+
+
+base <- ggplot(panas_2,(mapping = aes(x = name, y = value/, fill = elite))) +
+  geom_bar(stat="identity", position=position_dodge(0.7))
+
+
+```
+
+
+
+
+
 Next, create a test statistic as described in lecture and the notes. Test the null hypothesis that that the difference between elite and undergraduate MA0's is 0. Use an alpha 0.05. 
 
-```{r}
-D_hat <- ## insert difference in means estimator
-se_D_hat <- ##  calculate standard error for difference in means estimator using notes / slides
-test_statistic <- (D_hat - 0)/se_D_hat
-
-pnorm() # use pnorm to analyze the test statistic under the null hypothesis as shown in the lecture slides
-```
