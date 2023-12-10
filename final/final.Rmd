@@ -276,5 +276,23 @@ answer
 #research hypothesis: In local level, incumbents have higher vote advantage than challengers.
 
 #b
+
+df<- data.frame(ID= c(1:10),
+                 Incumbent = c(0.359, 0.511, 0.467, 0.643, 0.521, 0.671, 0.491, 0.228, 0.905, 0.503),
+                 Challenger = c(0.641, 0.489, 0.553, 0.357, 0.479, 0.329, 0.509, 0.772, 0.095, 0.497)
+)
+
+Diff<- mean(df$Incumbent)-mean(df$Challenger)
+se<- sqrt(sd(df$Incumbent)^2/10+sd(df$Challenger)^2/10)
+
+Diff/se
+#The good guess of difference is 0.0578.
+#Diff/se= 0.7 <1.96. Therefore, the null hypothesis cannot be rejected.
+
+
+#c
+
+#d from b and c, we can say that incumbents' advantage is not true.
+
 ```
 
