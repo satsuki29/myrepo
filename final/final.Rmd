@@ -170,13 +170,111 @@ var(income_original)
 ```{r}
 #2
 #a 0.38- 0.302= 0.078
+7.8%
 
 #b
-avg<- (0.38+0.302)/2
-sd<- sqrt((0.38- avg)^2+(0.302-avg)^2)/2
-se<- sd/sqrt(2)
-se
+df <- data.frame(x = rnorm(1000))
+df$dummyT<- NA
+df$dummyT[1:380]<-1
+df$dummyT[381:1000]<-0
+
+df$dummyC<- NA
+df$dummyC[1:302]<-1
+df$dummyC[303:1000]<-0
+
+
+se<- sqrt(sd(df$dummyT)^2/1000+sd(df$dummyC)^2/1000)
 
 #c
+mean<- 0.38 - 0.302
+
+#i
+mean+1.64*se
+mean-1.64*se
+# population mean should be 11.3% to 4.3%
+
+#ii
+mean+1.96*se
+mean-1.96*se
+# population mean should be 11.9% to 3.7%
+
+#d
+mean/se
+# this is around 3.9 >1.96  reject
+
+```
+
+```{r}
+#a 0.76
+
+
+set.seed(178974)
+sims <- 300
+reach <- c("Y","N")
+event <- 0
+
+for(i in 1:sims){
+  sample1 <- sample(x = reach, size = 1, 
+         replace = T, prob = c(0.76, 0.24))
+  if(sample1[1] == "Y"){
+    event <- event + 1
+  }
+}
+
+answer <- event/sims
+answer
+```
+
+```{r}
+#b 0.76*0.76= 0.5776
+set.seed(178974)
+sims <- 300
+reach <- c("Y","N")
+event <- 0
+
+for(i in 1:sims){
+  sample1 <- sample(x = reach, size = 2, 
+         replace = T, prob = c(0.76, 0.24))
+  if(sample1[1] == "Y" & sample1[2] == "Y"){
+    event <- event + 1
+  }
+}
+
+answer <- event/sims
+answer
+```
+
+```{r}
+#c
+0.99
+
+set.seed(178974)
+sims <- 300
+reach <- c("Y","N")
+event <- 0
+
+for(i in 1:sims){
+  for(j in 1:5){
+    sample <- sample(x = reach, size = 1, 
+           replace = T, prob = c(0.76, 0.24))
+    if(sample[1] == "Y"){
+      event <- event + 1
+      break
+    }
+  }
+}
+
+answer <- event/sims
+answer
+
+
+```
+
+```{r}
+#a
+#null hypothesis: In local level, incumbents' vote share and challengers' vote share is the same.
+#research hypothesis: In local level, incumbents have higher vote advantage than challengers.
+
+#b
 ```
 
