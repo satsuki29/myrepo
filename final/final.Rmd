@@ -291,8 +291,8 @@ t_value<- Diff/se
 
 
 #c
-pnorm(t_value)
-#p value is 0.76.
+t.test(df$Incumbent, df$Challenger)
+#p value is  0.4894.
 
 #d: for b the null hypothesis was not rejected, and and for c p value was more than 0.05. Therefore, we can say that incumbents' advantage is not true.
 
