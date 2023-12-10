@@ -52,7 +52,7 @@ measure_comparison <- gary_j_data %>%
             nationalization2 = cor(dv,dpres,use = "pairwise.complete.obs") # garyj's measure
             )
 
-cor(measure_comparison$nationalization1, measure_comparison$nationalization2)
+cor(measure_comparison$nationalization1, measure_comparison$nationalization2,method = "pearson")
 ```
 0.79
 
@@ -96,6 +96,87 @@ incumbency_adv_year_plot
 ```
 
 ```{r}
-#6a Find the pearson correlation between nationalization and the incumbency advantage by era (pre 1952 and post 1952) using the b_incumbency_adv data
+#6a
+#pre 1952
+b_incumbency_adv %>%
+  filter(post_1952 ==0 ) %>%
+  summarise(correlation = cor(estimate, nationalization, method ="pearson"))
+
+#post 1952
+b_incumbency_adv %>%
+  filter(post_1952 ==1 ) %>%
+  summarise(correlation = cor(estimate, nationalization, method ="pearson"))
+```
+
+```{r}
+#6b
+#pre 1952
+b_incumbency_adv %>%
+  filter(post_1952 ==0 ) %>%
+  summarise(correlation = cor(estimate, nationalization, method ="spearman"))
+
+#post 1952
+b_incumbency_adv %>%
+  filter(post_1952 ==1 ) %>%
+  summarise(correlation = cor(estimate, nationalization, method ="spearman"))
+
+```
+
+```{r}
+nationalization_incumbency_path_plot <- ggplot(data=b_incumbency_adv, 
+                                               aes(x=nationalization, 
+                                                   y=estimate))+ 
+  geom_point(aes(colour= year)) +
+  geom_path(aes(color=year))+
+  geom_text(size=4.5, aes(color=year, label=marker_break, hjust=-.3, vjust=.2)) +
+  geom_text(label= "Post 1952:",
+            x=-11, y=10.7, size=4.5, fontface="bold") +
+  geom_text(label= "Pre 1952:",
+            x=-11.5, y=4.8, size=4.5,fontface="bold") +
+  theme_classic() + 
+  xlab("Nationalization") + 
+  ylab("Incumbency Advantage") +
+  scale_color_continuous(name="Year") +
+  xlim(c(-13.5,-2.5)) +
+  theme(legend.key.height = unit(1.5, "cm"),
+        legend.title.align=0)
+
+nationalization_incumbency_path_plot
+
+```
+
+
+```{r}
+#1
+#a yes it will.
+#b yes it will.
+
+original <- function(x) {
+     x*10^3
+} 
+
+income_kilo<- c(1,2,3)
+income_original<- original(income_kilo)
+
+#c
+mean(income_kilo)
+mean(income_original)
+
+var(income_kilo)
+var(income_original)
+
+
+```
+```{r}
+#2
+#a 0.38- 0.302= 0.078
+
+#b
+avg<- (0.38+0.302)/2
+sd<- sqrt((0.38- avg)^2+(0.302-avg)^2)/2
+se<- sd/sqrt(2)
+se
+
+#c
 ```
 
