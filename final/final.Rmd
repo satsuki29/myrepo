@@ -82,5 +82,20 @@ nationalization_year_plot <- ggplot(data=swing_variance,
   geom_point() +
   theme_bw() + ylab("Nationalization") + xlab("Year")
 
+nationalization_year_plot 
+```
+
+```{r}
+incumbency_adv_year_plot <- ggplot(data=b_incumbency_adv, 
+                                   aes(x=year, y=estimate)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() + ylab("Incumbency Advantage") + xlab("Year")
+
+incumbency_adv_year_plot
+```
+
+```{r}
+#6a Find the pearson correlation between nationalization and the incumbency advantage by era (pre 1952 and post 1952) using the b_incumbency_adv data
 ```
 
