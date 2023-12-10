@@ -1,0 +1,86 @@
+---
+title: "final"
+author: "satsuki gyoten"
+date: "2023-12-10"
+output: html_document
+---
+```{r}
+
+library(dplyr) # install this package if you don't have it yet
+library(ggplot2) # install this package if you don't have it yet
+library(grDevices) # install this package if you don't have it yet
+library(grid)
+library(tidyr) # I don't think you absolutely need this library
+library(broom) # I don't think you absolutely need this library
+
+rm(list=ls())
+```
+
+```{r}
+library(readr)
+cq_data <- read_csv("cq_data.csv")
+```
+#1
+```{r}
+nationalization <- function(dv, dvp){
+  -sd(dv- dvp, na.rm = T)
+}
+```
+
+#2
+```{r}
+swing_variance <- cq_data %>%
+  filter(inc3 !=0) %>%
+  group_by(year) %>%
+  summarise(nationalization = nationalization(dv, dvp)
+  ) %>%
+  ungroup()
+
+show(swing_variance)
+```
+
+```{r}
+library(readr)
+gary_j_data <- read_csv("gary_j_data.csv")
+```
+
+```{r}
+measure_comparison <- gary_j_data %>%
+  filter(year>=1954) %>%
+  group_by(year) %>%
+  summarise(nationalization1 = nationalization(dv, dvp), # our measure
+            nationalization2 = cor(dv,dpres,use = "pairwise.complete.obs") # garyj's measure
+            )
+
+cor(measure_comparison$nationalization1, measure_comparison$nationalization2)
+```
+0.79
+
+
+# Calculate Incumbency advantage  coeffients by year
+# Join these estimates with our nationalization measure
+```{r}
+b_incumbency_adv <- cq_data %>%
+  group_by(year) %>% 
+  do(., tidy(lm(dv ~ dvp + ptynow + inc3, data = . ))) %>% 
+  filter(term == "inc3") %>%
+  ungroup() %>% 
+  left_join(., swing_variance, by="year") %>% # join to nationalization measure
+  mutate(post_1952 = as.numeric(year>1952)) 
+```
+
+```{r}
+b_incumbency_adv$marker_break <- NA
+b_incumbency_adv$marker_break[b_incumbency_adv$year==1950] <- 1950
+b_incumbency_adv$marker_break[b_incumbency_adv$year==1954] <- 1954
+```
+
+```{r}
+nationalization_year_plot <- ggplot(data=swing_variance, 
+                                    aes(x= year, y= nationalization)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() + ylab("Nationalization") + xlab("Year")
+
+```
+
