@@ -285,14 +285,16 @@ df<- data.frame(ID= c(1:10),
 Diff<- mean(df$Incumbent)-mean(df$Challenger)
 se<- sqrt(sd(df$Incumbent)^2/10+sd(df$Challenger)^2/10)
 
-Diff/se
+t_value<- Diff/se
 #The good guess of difference is 0.0578.
 #Diff/se= 0.7 <1.96. Therefore, the null hypothesis cannot be rejected.
 
 
 #c
+pnorm(t_value)
+#p value is 0.76.
 
-#d from b and c, we can say that incumbents' advantage is not true.
+#d: for b the null hypothesis was not rejected, and and for c p value was more than 0.05. Therefore, we can say that incumbents' advantage is not true.
 
 ```
 
