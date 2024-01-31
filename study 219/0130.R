@@ -20,11 +20,13 @@ Oct16_clean_2 <-  Oct16_clean %>%
     DRLEAD_W116 == "The Republican Party" ~ -1,
     DRLEAD_W116 == "The Democratic Party" ~ 1,
     DRLEAD_W116 == "Not sure" ~ 0
-  ))
-%>%
+  )) %>%
 mutate(CANDHOUKN_W116 = case_when(
   CANDHOUKN_W116 == "Nothing at all" ~ 0,
   CANDHOUKN_W116 == "Not too much" ~ 1,
   CANDHOUKN_W116 == "A fair amount" ~ 2,
   CANDHOUKN_W116 == "A great deal" ~ 3,
 ))
+
+lm(THERMBIDEN_W116 ~ party, data = Oct16_clean_2)
+lm(THERMBIDEN_W116 ~ CANDHOUKN_W116, data = Oct16_clean_2)
