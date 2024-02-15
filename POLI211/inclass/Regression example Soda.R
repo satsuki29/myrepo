@@ -9,7 +9,7 @@ library(ggplot2)
 library(describedata)
 library(haven)
 
-dataframe <- read_stata("discrim.dta")
+dataframe <- read_dta("discrim.dta")
 
 #summarize first 5 observations of each variable in the dataframe
 head(dataframe)
@@ -42,15 +42,18 @@ big_model<-lm( psoda ~ nmgrs+ nregs+ hrsopen +emp+ prpblck +prppov+ prpncar +hse
 summary(big_model)
 
 #How calculate R2 if the following are true:
-#ESS = 1.0449
-#RSS = 1.9558
-#TSS = 3.0008
+#ESS = 1.0449 estimated sum of squares
+#RSS = 1.9558 risidual sum of squares
+#TSS = 3.0008 total sum of squares
+#R^2= ESS/ TSS OR 1- RSS/ TSS= 0.36
 
 
 #what's the variance inflation factor (VIF) for our model?
 install.packages("car")
 library(car)
 vif(big_model)
+
+
 
 # Correlation shows which X variables are most correlated with each other
 # need to create a sub matrix of the variables you're interested in
@@ -79,6 +82,7 @@ summary(new_model2)
 install.packages("LEAP")
 library(leaps)
 models <- regsubsets(subset_y$psoda~., data = subset, na.action=na.omit, nvmax = 8)
+##データフレームから特定の列を抽出して新しいデータフレームを作成
 summary(models)
 #Note which variable remains omitted!  Why, do you think?
 
