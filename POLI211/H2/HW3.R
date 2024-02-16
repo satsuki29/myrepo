@@ -43,4 +43,12 @@ cor(df[, c( "log_crime", "log_nox", "log_rooms", "log_dist")])
 
 #5
 
+lm_df<- lm(log_price~ log_crime+ log_rooms+ log_dist+ log_dist+ log_nox, data = df, na.action = na.omit)
+summary(lm_df)
+# increasing 1% change in crimes commited per capita change predicts an an average of 7% decrease in median housing price.
+# 
+# increasing 1  capita of change predicts an an average of 7 dollars decrease in median housing price.
+
+#6
+lm_df_lowstat<- lm(lowstat ~ log_crime+ log_rooms+ log_dist+ log_dist+ log_nox, data = df, na.action = na.omit)
 
