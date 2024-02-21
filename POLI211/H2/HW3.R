@@ -45,10 +45,16 @@ cor(df[, c( "log_crime", "log_nox", "log_rooms", "log_dist")])
 
 lm_df<- lm(log_price~ log_crime+ log_rooms+ log_dist+ log_dist+ log_nox, data = df, na.action = na.omit)
 summary(lm_df)
-# increasing 1% change in crimes commited per capita change predicts an an average of 7% decrease in median housing price.
-# 
-# increasing 1  capita of change predicts an an average of 7 dollars decrease in median housing price.
-
+# increasing 1% change in crimes committed per capita change predicts  an average of 0.07% decrease in median housing price.
+# increasing 1% change in room numbers predicts an average of  1.7% increase in median housing price. 
+# increasing 1% of weighted distance to 5 employ centers predicts an an average of 0.17%  dollars decrease in median housing price.
+# increasing 1% if Nitrogen oxide concentration per 100meters predicts an average of 0.49% decrease in median housing price.
 #6
 lm_df_lowstat<- lm(lowstat ~ log_crime+ log_rooms+ log_dist+ log_dist+ log_nox, data = df, na.action = na.omit)
+summary(lm_df_lowstat)
+# increasing 1% change in crimes committed per capita change predicts an average of 0.008 percent increase in people of "lower status."
+# increasing 1% change in room numbers predicts an average of  0.29 percent decrease in people of "lower status."
+# increasing 1% change of weighted distance to 5 employ centers predicts an an average of 0.016 percent decrease in people of "lower status."
+# increasing 1% if Nitrogen oxide concentration per 100meters predicts an average of 0.05 percent percent increase in people of "lower status."
+
 
