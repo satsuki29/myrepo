@@ -33,6 +33,11 @@ dataframe %>%
 livermodel <- lm(liver ~ alcohol, data=dataframe, na.action = na.omit)
 summary(livermodel)
 
+
+#不均一分散テスト
+library(lmtest)
+bptest(livermodel, data=dataframe, studentize = T)
+
 #cooks distance
 #examines how much all of the fitted values change when the ith observation is deleted.
 ols_plot_cooksd_bar(livermodel)
