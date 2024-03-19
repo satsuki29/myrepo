@@ -19,6 +19,8 @@ head(dataframe$emp2)
 
 #generate a binary (0/1) variable from continuous variable
 dataframe$majblk <- ifelse(dataframe$prpblck>.5,1,0)
+library(fastDummies)
+dataframe_2 <- fastDummies::dummy_cols(dataframe, select_columns = "chain")
 
 #histogram
 hist(dataframe$majblk)
