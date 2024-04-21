@@ -130,6 +130,69 @@ summary(lm_3)
 reg.or<-exp(coefficients(lm_3))
 table_reg1<-stargazer(lm_3, type="latex", coef=list(reg.or), p.auto=FALSE, out="logitor.tex")
 
-## figure
-df_new2<-
+## figure_ 2022
+df_new2<- df_new1[,c("aircraft","Year_2022", "total_coverage")]
+fit_2022 <-lm(total_coverage~ aircraft + Year_2022, data = df_new2)
+
+pred<- df_new2%>%
+  with(expand.grid( aircraft = seq(min(aircraft, na.rm = T),
+                              max(aircraft, na.rm = T),
+                              length.out = 100),
+                   Year_2022 = 0:1))
+pred$ total_coverage = predict(fit_2022, newdata = pred)
+
+pred$color <- ifelse(pred$Year_2022 ==1, "A", "B")
+
+
+plt_1A <-  ggplot(df_new2,
+aes(x = aircraft, y = total_coverage,
+shape = as.factor(Year_2022),
+linetype = as.factor(Year_2022))) +
+geom_point() +
+geom_line(data = pred, aes(color = color)) +
+labs(x = "number of aircrafts", y = "coverage") +
+scale_linetype_discrete(guide = FALSE) +
+scale_shape_discrete(name = "Year",
+labels = c("else", 2022)) +
+guides(shape = guide_legend(reverse = TRUE)) +
+geom_label(aes(x = 15, y = 1.8, label = 2022)) +
+geom_label(aes(x = 15, y = 0.5, label = "else"))
+
+print(plt_1A)
+
+## figure_ china
+df_new3<- df_new1[,c("aircraft","country_CN", "total_coverage")]
+fit_CN <-lm(total_coverage~ aircraft + country_CN, data = df_new3)
+
+pred_CN<- df_new3%>%
+  with(expand.grid( aircraft = seq(min(aircraft, na.rm = T),
+                                   max(aircraft, na.rm = T),
+                                   length.out = 100),
+                    country_CN = 0:1))
+
+pred_CN$total_coverage = predict(fit_CN, newdata = pred_CN)
+
+pred_CN$color <- ifelse(pred_CN $ country_CN == 1, "A", "B")
+
+
+
+plt_1B <-  ggplot(df_new3,
+                  aes(x = aircraft, y = total_coverage,
+                      shape = as.factor(country_CN),
+                      linetype = as.factor(country_CN))) +
+  geom_point() +
+  geom_line(data = pred_CN, aes(color = color)) +
+  labs(x = "number of aircrafts", y = "coverage") +
+  scale_linetype_discrete(guide = FALSE) +
+  scale_shape_discrete(name = "country",
+                       labels = c("else", "China")) +
+  guides(shape = guide_legend(reverse = TRUE)) +
+  geom_label(aes(x = 15, y = 1.8, label = "China")) +
+  geom_label(aes(x = 15, y = 0.5, label = "else"))
+
+
+print(plt_1B)
+######################################
+## logit
+
 
