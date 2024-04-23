@@ -193,6 +193,12 @@ plt_1B <-  ggplot(df_new3,
 
 print(plt_1B)
 ######################################
-## logit
+## logit: did not work out well
 
+model_logit <- use_labels(df_new1, glm(Yomiuri ~ aircraft+country_no+country_CN+Year_2022,
+                                       data=df_new1,
+                                       na.action=na.omit, family=binomial(link='logit')))
+summary(model_logit)
 
+reg.or_logit<-exp(coefficients(model_logit))
+table_reg1<-stargazer(model_logit, type="latex", coef=list(reg.or_logit), p.auto=FALSE, out="logitor.tex")
