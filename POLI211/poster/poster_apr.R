@@ -22,22 +22,25 @@ library(arm)
 library(readr)
 
 
-df <- read_csv("249 データ(CSV).csv")
+library(readr)
+df <- read_csv("~/GitHub/myrepo/POLI211/poster/200 .csv")
 View(df)
 
 names(df)
 head(df)
 glimpse(df)
 cor(df)
+
 #################################################
-scat1<- ggplot(data =df,
-               mapping = aes(x= aircraft ,y= total_coverage))
+scat1<- ggplot(data =df_new,
+               mapping = aes(x= aircraft ,y= total_wordcount))
 scat1<- scat1 + geom_point()
 
 scat1<- scat1 +
-  labs(x= "飛行機の数", y= "報道数", 
-       title= "飛行機の数と報道")
+  labs(x="number of aircrafts" , y= "wordcount", 
+       title= "")
 print(scat1)
+
 
 #################################################
 scat2<- ggplot(data =df,
@@ -48,6 +51,7 @@ scat2<- scat2 +
   labs(x= "戦闘機", y= "報道数", 
        title= "飛行機の種類と報道")
 print(scat2)
+
 
 #################################################
 
@@ -193,7 +197,7 @@ plt_1B <-  ggplot(df_new3,
 
 print(plt_1B)
 ######################################
-## logit: did not work out well
+## あとでやる
 
 model_logit <- use_labels(df_new1, glm(Yomiuri ~ aircraft+country_no+country_CN+Year_2022,
                                        data=df_new1,
@@ -202,3 +206,57 @@ summary(model_logit)
 
 reg.or_logit<-exp(coefficients(model_logit))
 table_reg1<-stargazer(model_logit, type="latex", coef=list(reg.or_logit), p.auto=FALSE, out="logitor.tex")
+
+
+######################################
+#final draft
+# rename
+df_new <- rename(df, West_militaryexercise = "West_military exercise",
+                 Yomiuri_wordcount = "Yomiuri_word count",
+                 Nikkei_wordcount = "Nikkei_word count",
+                 total_wordcount ="total_ wordcount" ,
+                 country_no ="country number")
+
+library(dummies)
+df_new <- df_new %>%
+  mutate(dummy_years = dummy(year))
+
+
+
+  
+cor(df_new)
+
+df_wordcount<-df_new[,-which(names(df_new) == "Yomiuri","Nikkei","total_coverage")]
+df_wordcount2<-df_wordcount[,-which(names(df_wordcount) == "Yomiuri_wordcount","Nikkei_wordcount")]
+
+#vif test(多重共線性)
+
+lm_viftest<- lm(total_wordcount ~ aircraft+country_no+country_CN+West_militaryexercise+Year_2022+invasion,data=df_wordcount2)
+vif(lm_viftest) #clear
+
+######################################
+#check heterosked~~(不均一分散)
+
+res_plt_wc<- tibble(res = lm_viftest $ residuals,
+                 fitted = lm_viftest $ fitted.values) %>%
+  ggplot(aes( x= fitted, y= res))+
+  geom_point() +
+  geom_hline(yintercept = 0)+
+  labs ( x= " fitted values", y= "residuals")　#曖昧
+
+print (res_plt_wc)
+
+####################################
+##run a regression　(word count)
+
+lm_wordcount<- lm(total_wordcount~ aircraft+country_no+country_CN+West_militaryexercise+invasion+dummy_years, data= df_wordcount2)
+
+
+
+summary(lm_wordcount)
+reg.or<-exp(coefficients(lm_wordcount))
+table_reg1<-stargazer(lm_wordcount, type="latex", coef=list(reg.or), p.auto=FALSE, out="logitor.tex")
+
+####################################
+##run a regression　(coverage version)
+
