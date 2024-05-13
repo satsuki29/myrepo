@@ -218,6 +218,7 @@ df_new <- rename(df, West_militaryexercise = "West_military exercise",
                  country_no ="country number")
 
 library(dummies)
+
 df_new <- df_new %>%
   mutate(dummy_years = dummy(year))
 
@@ -246,11 +247,21 @@ res_plt_wc<- tibble(res = lm_viftest $ residuals,
 
 print (res_plt_wc)
 
-####################################
-##run a regression　(word count)
-
+#qq plotres<- lm_viftest2$ residuals
 lm_wordcount<- lm(total_wordcount~ aircraft+country_no+country_CN+West_militaryexercise+invasion+dummy_years, data= df_wordcount2)
 
+res3<- lm_wordcount$ residuals
+df_res3<- tibble(z_res3 =(res3 - mean(res3))/sd(res3))
+
+qqplot<- ggplot(df_res3,aes(sample = z_res3))+
+  geom_abline(intercept = 0, slope=1 ,linetype="dashed")+
+  geom_qq()+
+  labs(x= "Standardized residuals distribution", y="normal distribution")
+print(qqplot)
+
+
+####################################
+##run a regression　(word count)
 
 
 summary(lm_wordcount)
@@ -258,5 +269,18 @@ reg.or<-exp(coefficients(lm_wordcount))
 table_reg1<-stargazer(lm_wordcount, type="latex", coef=list(reg.or), p.auto=FALSE, out="logitor.tex")
 
 ####################################
-##run a regression　(coverage version)
+## second attempt including control variables
+##run a regression　
+lm_w_control<- lm(total_coverage~ aircraft+country_no+country_CN+West_militaryexercise+invasion+dummy_years, data= df_wordcount2)
+summary(lm_w_control)
 
+vif(lm_w_control)
+
+res_plt_2nd<- tibble(res = lm_w_control $ residuals,
+                    fitted = lm_w_control $ fitted.values) %>%
+  ggplot(aes( x= fitted, y= res))+
+  geom_point() +
+  geom_hline(yintercept = 0)+
+  labs ( x= " fitted values", y= "residuals")　#曖昧
+
+print (res_plt_wc)
